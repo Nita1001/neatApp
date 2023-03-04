@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { isEmailValid } from '../utils/validateEmail'
-import { isPhoneValid } from '../utils/validatePhone'
+import { USERS_URL, LOGIN_ERROR_MESSAGE, API_ERROR_MESSAGE } from '../utils/constants'
 
 const LogInForm = () => {
     const navigate = useNavigate();
@@ -25,32 +25,35 @@ const LogInForm = () => {
             return;
         }
         try {
-            const response = await axios.get('https://64022104ab6b7399d0b48fee.mockapi.io/users');
+            const response = await axios.get(USERS_URL);
             const user = response.data.find((user) => user.email === email && user.password === password);
             if (user) {
                 console.log(user);
                 setIsLoggedIn(true);
-                user.isLoggedIn = true; // Update isLoggedIn field
+                user.isLoggedIn = true;
                 localStorage.setItem('userToken', user.id);
                 await axios.put(`https://64022104ab6b7399d0b48fee.mockapi.io/users/${user.id}`, user);
                 navigate(user.email === 'admin@mail.com' ? '/admin' : '/');
             } else {
-                setLoginError('Incorrect email or password. Please try again.');
+
+                setLoginError(LOGIN_ERROR_MESSAGE);
             }
         } catch (error) {
             console.error(error);
-            setLoginError('An error occurred. Please try again later.');
+            setLoginError(API_ERROR_MESSAGE);
         }
     };
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
-        if (e.target.value) {
-            setEmailError(isEmailValid(e.target.value) ? '' : 'Invalid email');
-        } else {
-            setEmailError('');
-        }
+        setEmailError('');
         setLoginError('');
+        // Wait before checking validity
+        setTimeout(() => {
+            if (e.target.value) {
+                setEmailError(isEmailValid(e.target.value) ? '' : 'Invalid email');
+            }
+        }, 2500);
     };
 
     const handlePasswordChange = (e) => {
@@ -58,14 +61,14 @@ const LogInForm = () => {
         setLoginError('');
     };
 
-
     return (
         <div className="container">
             <form className='form'>
 
                 <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+                {emailError && <div className="error">{emailError}</div>}
                 <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-                {loginError && <div className="error">{loginError}</div>}
+                {passwordError && <div className="error">{passwordError}</div>}
                 <button onClick={handleLogIn}>Log In</button>
                 <Link className='signLogUp' to='/signUp'>New to nitApp?</Link>
 
