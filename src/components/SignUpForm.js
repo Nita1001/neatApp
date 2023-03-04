@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { isEmailValid } from '../utils/validateEmail'
 import { isPhoneValid } from '../utils/validatePhone'
-import { USERS_URL, LOGIN_ERROR_MESSAGE, API_ERROR_MESSAGE } from '../utils/constants'
+import { USERS_URL } from '../utils/constants'
 
 
 const SignUpForm = () => {
@@ -17,8 +17,6 @@ const SignUpForm = () => {
     const [phoneError, setPhoneError] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isValid, setIsValid] = useState(false);
-    const [loginError, setLoginError] = useState('');
-    // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
         setIsValid(isEmailValid(email) && isPhoneValid(phone));
@@ -39,7 +37,7 @@ const SignUpForm = () => {
                 isLoggedIn: false,
             });
             console.log(response.data);
-            navigate('/about');
+            navigate('/logIn');
         } catch (error) {
             console.error(error);
         }
@@ -65,12 +63,10 @@ const SignUpForm = () => {
         } else {
             setEmailError('');
         }
-        setLoginError('');
     };
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
-        setLoginError('');
     };
 
     return (

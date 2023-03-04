@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { isEmailValid } from '../utils/validateEmail'
 import { USERS_URL, LOGIN_ERROR_MESSAGE, API_ERROR_MESSAGE } from '../utils/constants'
+
+import { LogInContext } from '../contexts/LogInContext';
 
 const LogInForm = () => {
     const navigate = useNavigate();
@@ -12,7 +14,7 @@ const LogInForm = () => {
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
     const [loginError, setLoginError] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLoggedIn, logIn } = useContext(LogInContext);
 
     const handleLogIn = async (e) => {
         e.preventDefault();
@@ -28,15 +30,16 @@ const LogInForm = () => {
             const response = await axios.get(USERS_URL);
             const user = response.data.find((user) => user.email === email && user.password === password);
             if (user) {
+                logIn();
                 console.log(user);
-                setIsLoggedIn(true);
+                console.log(isLoggedIn);
                 user.isLoggedIn = true;
                 localStorage.setItem('userToken', user.id);
                 await axios.put(`https://64022104ab6b7399d0b48fee.mockapi.io/users/${user.id}`, user);
                 navigate(user.email === 'admin@mail.com' ? '/admin' : '/');
             } else {
-
                 setLoginError(LOGIN_ERROR_MESSAGE);
+                console.log(loginError);
             }
         } catch (error) {
             console.error(error);
@@ -77,4 +80,4 @@ const LogInForm = () => {
     )
 }
 
-export default LogInForm
+export default LogInForm;
