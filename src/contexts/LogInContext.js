@@ -8,11 +8,13 @@ const LogInContext = createContext({
 });
 
 const LogInProvider = ({ children }) => {
+
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const logIn = () => setIsLoggedIn(true);
 
     const logOut = async () => {
+
         try {
             const userToken = localStorage.getItem('userToken');
             const response = await axios.get(`https://64022104ab6b7399d0b48fee.mockapi.io/users/${userToken}`);

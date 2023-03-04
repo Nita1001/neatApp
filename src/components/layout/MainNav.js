@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { LogInContext } from '../../contexts/LogInContext';
+import { useNavigate } from 'react-router-dom';
 
 const MainNav = () => {
     const { isLoggedIn, logOut } = useContext(LogInContext);
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         logOut();
+        navigate('/');
     };
 
     return (
@@ -34,13 +37,13 @@ const MainNav = () => {
                         </NavLink>
                         {isLoggedIn ? (
                             <>
-                                {/* <NavLink
-                  to='/profile'
-                  className={({ isActive }) => (isActive ? 'link active' : 'link')}
-                >
-                  Profile
-                </NavLink> */}
-                                <button onClick={handleLogout}>Log Out</button>
+                                <NavLink
+                                    to='/profile'
+                                    className={({ isActive }) => (isActive ? 'link active' : 'link')}
+                                >
+                                    Profile
+                                </NavLink>
+                                <button className='btnLogOut' onClick={handleLogout}>Log Out</button>
                             </>
                         ) : (
                             <>

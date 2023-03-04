@@ -36,7 +36,7 @@ const LogInForm = () => {
                 user.isLoggedIn = true;
                 localStorage.setItem('userToken', user.id);
                 await axios.put(`https://64022104ab6b7399d0b48fee.mockapi.io/users/${user.id}`, user);
-                navigate(user.email === 'admin@mail.com' ? '/admin' : '/');
+                navigate(user.email === 'admin@mail.com' ? '/admin' : '/profile');
             } else {
                 setLoginError(LOGIN_ERROR_MESSAGE);
                 console.log(loginError);
