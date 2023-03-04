@@ -362,6 +362,18 @@ span {
 }
 
 /* Forms */
+.form {
+    padding-top: 2rem;
+    width: 20%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+}
+
+.signLogUp {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
 
 input {
     border-radius: 0.5rem;
