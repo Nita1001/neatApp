@@ -578,6 +578,10 @@ input[type="submit"]:disabled {
     background-color: #79788c;
 }
 
+.day-active {
+    background-color: #79788c;
+}
+
 .calendar-week-day {
     height: 5rem;
     display: grid;

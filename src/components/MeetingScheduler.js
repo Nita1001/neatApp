@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { DAYS_OF_WEEK, MONTH_NAMES } from "../utils/constants";
 import useCalendar from "../hooks/useCalendar";
 
-function MeetingScheduler() {
+const MeetingScheduler = () => {
 
     const {
         generateCalendar,
@@ -20,7 +20,6 @@ function MeetingScheduler() {
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
-
 
     return (
         <div className="calendarContainer">
