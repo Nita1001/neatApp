@@ -1,8 +1,15 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 const About = () => {
+
     return (
-        <div>About</div>
+        <>
+            <Helmet>
+                <title>NeatApp | About</title>
+            </Helmet>
+            <div>About</div>
+        </>
     )
 }
 
