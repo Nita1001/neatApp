@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { SelectedDateContext } from '../contexts/SelectedDateContext';
+import { DAYS_OF_WEEK, MONTH_NAMES } from "../utils/constants";
 
 function MeetingScheduler() {
     const [month, setMonth] = useState(new Date().getMonth());
@@ -7,12 +8,6 @@ function MeetingScheduler() {
     const [darkMode, setDarkMode] = useState(false);
     const [showMonthList, setShowMonthList] = useState(false);
     const { setSelectedDate, hideDates, showDates } = useContext(SelectedDateContext);
-
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December",
-    ];
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     const isLeapYear = (year) => {
         return (
@@ -95,7 +90,7 @@ function MeetingScheduler() {
             <div className={`calendar ${darkMode ? "dark" : "light"}`}>
                 <div className="calendar-header">
                     <span className="month-picker" onClick={monthList}>
-                        {monthNames[month]}
+                        {MONTH_NAMES[month]}
                     </span>
                     <div className="year-picker">
                         <span className="year-change" onClick={prevYear}>
@@ -109,7 +104,7 @@ function MeetingScheduler() {
                 </div>
                 <div className="calendar-body">
                     <div className="calendar-week-day">
-                        {daysOfWeek.map((day) => (
+                        {DAYS_OF_WEEK.map((day) => (
                             <div key={day}>{day}</div>
                         ))}
                     </div>
@@ -125,7 +120,7 @@ function MeetingScheduler() {
                 </div>
                 {showMonthList && (
                     <div className={`month-list ${showMonthList ? 'show' : ''}`}>
-                        {monthNames.map((month, index) => (
+                        {MONTH_NAMES.map((month, index) => (
                             <div key={index} onClick={() => handleMonthClick(index)}>
                                 {month}
                             </div>

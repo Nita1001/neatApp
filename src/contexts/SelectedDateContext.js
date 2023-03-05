@@ -4,18 +4,19 @@ export const SelectedDateContext = createContext();
 
 export const SelectedDateProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [displayDates, setDisplayDates] = useState(true);
+  const [displayTimes, setDisplayTimes] = useState(true);
+  const [selectedTime, setSelectedTime] = useState(null);
 
   const hideDates = () => {
-    setDisplayDates(false);
+    setDisplayTimes(false);
   }
 
   const showDates = () => {
-    setDisplayDates(true);
+    setDisplayTimes(true);
   }
 
   return (
-    <SelectedDateContext.Provider value={{ selectedDate, setSelectedDate, displayDates, hideDates, showDates }}>
+    <SelectedDateContext.Provider value={{ selectedDate, setSelectedDate, displayTimes, hideDates, showDates, selectedTime, setSelectedTime }}>
       {children}
     </SelectedDateContext.Provider>
   );

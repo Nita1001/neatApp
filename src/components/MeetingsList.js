@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { getUsers } from '../api/userServices';
 import { SelectedDateContext } from '../contexts/SelectedDateContext';
+import { TIME_SLOTS } from '../utils/constants';
 
-const MeetingsList = ({ timeSlots }) => {
-    const { selectedDate, displayDates } = useContext(SelectedDateContext);
+const MeetingsList = () => {
+    const { selectedDate, displayTimes, setSelectedTime } = useContext(SelectedDateContext);
     const [availableHours, setAvailableHours] = useState([]);
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
                 const users = await getUsers();
-                const availableTimeSlots = timeSlots.slice();
+                const availableTimeSlots = TIME_SLOTS.slice();
                 users.forEach((user) => {
                     const schedules = user.schedules;
                     if (schedules) {
@@ -31,19 +32,27 @@ const MeetingsList = ({ timeSlots }) => {
         };
 
         fetchUsers();
-    }, [selectedDate, timeSlots]);
+    }, [selectedDate]);
+
+    const handleSelectedTime = (hour) => {
+
+        setSelectedTime(hour);
+        console.log(hour, selectedDate);
+
+    }
+
 
     return (
         <div>
             {selectedDate && (
-                <f>
-                    {displayDates && (
+                <>
+                    {displayTimes && (
                         availableHours.length > 0 ? (
                             <>
                                 <h3>Available</h3>
                                 <ul>
                                     {availableHours.map((hour) => (
-                                        <li key={hour}>{hour}</li>
+                                        <li key={hour} onClick={() => handleSelectedTime(hour)}>{hour}</li>
                                     ))}
                                 </ul>
                             </>
@@ -51,7 +60,7 @@ const MeetingsList = ({ timeSlots }) => {
                             <p>None available meetings for this date.</p>
                         )
                     )}
-                </f>
+                </>
             )}
         </div>
     );
