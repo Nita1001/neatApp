@@ -85,11 +85,7 @@ function MeetingScheduler() {
     };
 
     const handleDayClick = (day, month, year) => {
-        const newSelectedDate = `
-        ${day}
-        -${(month + 1).toString().padStart(2, '0')}
-        -${(year % 100).toString().padStart(2, '0')}
-        `;
+        const newSelectedDate = `${day}-${(month + 1).toString().padStart(2, '0')}-${(year % 100).toString().padStart(2, '0')}`;
         setSelectedDate(newSelectedDate);
         showDates();
     };
