@@ -4,7 +4,7 @@ import { SelectedDateContext } from '../contexts/SelectedDateContext';
 import { TIME_SLOTS } from '../utils/constants';
 
 const MeetingsList = () => {
-    const { selectedDate, displayTimes, setSelectedTime } = useContext(SelectedDateContext);
+    const { selectedDate, displayTimes, selectedTime, setSelectedTime } = useContext(SelectedDateContext);
     const [availableHours, setAvailableHours] = useState([]);
 
     useEffect(() => {
@@ -39,8 +39,12 @@ const MeetingsList = () => {
         setSelectedTime(hour);
         console.log(hour, selectedDate);
 
+
     }
 
+    const handleSetUpMeeting = () => {
+        console.log('NICE')
+    }
 
     return (
         <div>
@@ -55,11 +59,16 @@ const MeetingsList = () => {
                                         <li key={hour} onClick={() => handleSelectedTime(hour)}>{hour}</li>
                                     ))}
                                 </ul>
+                                {
+                                    selectedTime ? <><p>are you sure?</p><button onClick={handleSetUpMeeting}>yes</button></>
+                                        : null
+                                }
                             </>
                         ) : (
                             <p>None available meetings for this date.</p>
                         )
                     )}
+
                 </>
             )}
         </div>

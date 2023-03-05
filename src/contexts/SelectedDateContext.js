@@ -9,10 +9,12 @@ export const SelectedDateProvider = ({ children }) => {
 
   const hideDates = () => {
     setDisplayTimes(false);
+    setSelectedTime(null);
   }
 
   const showDates = () => {
     setDisplayTimes(true);
+    setSelectedTime(null);
   }
 
   return (
