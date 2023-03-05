@@ -6,12 +6,13 @@ function MeetingScheduler() {
     const [year, setYear] = useState(new Date().getFullYear());
     const [darkMode, setDarkMode] = useState(false);
     const [showMonthList, setShowMonthList] = useState(false);
-    const { setSelectedDate } = useContext(SelectedDateContext);
+    const { setSelectedDate, hideDates, showDates } = useContext(SelectedDateContext);
 
     const monthNames = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December",
     ];
+    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     const isLeapYear = (year) => {
         return (
@@ -54,18 +55,24 @@ function MeetingScheduler() {
     };
 
     const prevYear = () => {
+        hideDates();
         setYear(year - 1);
     };
 
     const nextYear = () => {
+        hideDates();
         setYear(year + 1);
     };
-
-    const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
+
+    const monthList = () => {
+        hideDates();
+        setShowMonthList(true);
+
+    }
 
     const handleMonthClick = (index) => {
         setMonth(index);
@@ -78,15 +85,20 @@ function MeetingScheduler() {
     };
 
     const handleDayClick = (day, month, year) => {
-        const newSelectedDate = `${day}-${(month + 1).toString().padStart(2, '0')}-${(year % 100).toString().padStart(2, '0')}`;
-        console.log(newSelectedDate)
+        const newSelectedDate = `
+        ${day}
+        -${(month + 1).toString().padStart(2, '0')}
+        -${(year % 100).toString().padStart(2, '0')}
+        `;
         setSelectedDate(newSelectedDate);
+        showDates();
     };
+
     return (
         <div className="calendarContainer">
             <div className={`calendar ${darkMode ? "dark" : "light"}`}>
                 <div className="calendar-header">
-                    <span className="month-picker" onClick={() => setShowMonthList(true)}>
+                    <span className="month-picker" onClick={monthList}>
                         {monthNames[month]}
                     </span>
                     <div className="year-picker">
@@ -127,7 +139,6 @@ function MeetingScheduler() {
             </div>
         </div >
     );
-
 }
 
 export default MeetingScheduler;
