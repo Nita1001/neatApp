@@ -1,24 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { SelectedDateContext } from '../contexts/SelectedDateContext';
 
 function MeetingScheduler() {
     const [month, setMonth] = useState(new Date().getMonth());
     const [year, setYear] = useState(new Date().getFullYear());
     const [darkMode, setDarkMode] = useState(false);
     const [showMonthList, setShowMonthList] = useState(false);
+    const { setSelectedDate } = useContext(SelectedDateContext);
 
     const monthNames = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December",
     ];
 
     const isLeapYear = (year) => {
@@ -34,24 +26,13 @@ function MeetingScheduler() {
 
     const generateCalendar = () => {
         const daysOfMonth = [
-            31,
-            getFebDays(year),
-            31,
-            30,
-            31,
-            30,
-            31,
-            31,
-            30,
-            31,
-            30,
-            31,
+            31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
         ];
 
         const firstDay = new Date(year, month, 1).getDay();
 
-        const days = Array.from({ length: daysOfMonth[month] }, (_, i) => i + 1).map(
-            (day) => (
+        const days = Array.from({ length: daysOfMonth[month] }, (_, i) => i + 1)
+            .map((day) => (
                 <div
                     key={day}
                     className={`day ${day === new Date().getDate() &&
@@ -64,8 +45,7 @@ function MeetingScheduler() {
                 >
                     {day}
                 </div>
-            )
-        );
+            ));
 
         for (let i = 0; i < firstDay; i++) {
             days.unshift(<div key={`empty-${i}`} className="empty-day"></div>);
@@ -98,10 +78,10 @@ function MeetingScheduler() {
     };
 
     const handleDayClick = (day, month, year) => {
-
-        console.log(`Clicked on day ${day}`, month + 1, year)
+        const newSelectedDate = `${day}-${(month + 1).toString().padStart(2, '0')}-${(year % 100).toString().padStart(2, '0')}`;
+        console.log(newSelectedDate)
+        setSelectedDate(newSelectedDate);
     };
-
     return (
         <div className="calendarContainer">
             <div className={`calendar ${darkMode ? "dark" : "light"}`}>
