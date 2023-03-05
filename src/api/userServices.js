@@ -62,3 +62,13 @@ export const logInUser = async (email, password) => {
   }
 };
 
+export const updateUsersData = async (id, updatedData) => {
+  try {
+    const response = await axios.put(`${USERS_URL}/${id}`, updatedData);
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw new Error(API_ERROR_MESSAGE);
+  }
+};

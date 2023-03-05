@@ -32,7 +32,7 @@ const SignUpForm = () => {
                 phone,
                 email,
                 password,
-                schedules: [{ date: '22-03-23', time: '09:00' }, { date: '28-03-23', time: '13:00' }],
+                schedules: [],
                 isLoggedIn: false,
             });
             console.log(response.data);

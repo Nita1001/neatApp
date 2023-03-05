@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { getUserById, getUsers } from '../api/userServices';
+import { getUserById, getUsers, updateUsersData } from '../api/userServices';
 import { SelectedDateContext } from '../contexts/SelectedDateContext';
 import { TIME_SLOTS } from '../utils/constants';
 
@@ -43,20 +43,22 @@ const MeetingsList = () => {
     }, [selectedTime])
 
     const handleSetUpMeeting = async () => {
-
         try {
             const id = localStorage.getItem('userToken');
             const user = await getUserById(id);
             if (user) {
                 console.log('before', user.schedules);
-                const currentSchedule = user.schedules;
-                currentSchedule.push(selectedTime);
-                console.log('after', currentSchedule);
+                const updatedSchedules = [...user.schedules, selectedTime];
+                console.log('after', updatedSchedules);
+                const response = await updateUsersData(user.id, { schedules: updatedSchedules });
+                console.log(response);
             }
         } catch (error) {
             console.error(error);
         }
-    }
+
+        setSelectedTime(null);
+    };
 
     return (
         <div>
