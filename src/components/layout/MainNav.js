@@ -43,6 +43,12 @@ const MainNav = () => {
                                 >
                                     Profile
                                 </NavLink>
+                                <NavLink
+                                    to='/schedule'
+                                    className={({ isActive }) => (isActive ? 'link active' : 'link')}
+                                >
+                                    Schedule
+                                </NavLink>
                                 <button className='btnLogOut' onClick={handleLogout}>Log Out</button>
                             </>
                         ) : (
