@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-
 import { isEmailValid } from '../utils/validateEmail'
 import { isPhoneValid } from '../utils/validatePhone'
-import { USERS_URL } from '../utils/constants'
+import { createUser } from '../api/userServices'
 
 
 const SignUpForm = () => {
@@ -29,11 +27,12 @@ const SignUpForm = () => {
             return;
         }
         try {
-            const response = await axios.post(USERS_URL, {
+            const response = await createUser({
                 name,
                 phone,
                 email,
                 password,
+                schedules: [],
                 isLoggedIn: false,
             });
             console.log(response.data);
