@@ -1,89 +1,26 @@
-import React, { useState, useContext } from "react";
-import { SelectedDateContext } from '../contexts/SelectedDateContext';
+import React, { useState } from "react";
 import { DAYS_OF_WEEK, MONTH_NAMES } from "../utils/constants";
+import useCalendar from "../hooks/useCalendar";
 
 function MeetingScheduler() {
-    const [month, setMonth] = useState(new Date().getMonth());
-    const [year, setYear] = useState(new Date().getFullYear());
+
+    const {
+        generateCalendar,
+        prevYear,
+        nextYear,
+        handleMonthClick,
+        showMonthList,
+        monthList,
+        year,
+        month
+    } = useCalendar();
+
     const [darkMode, setDarkMode] = useState(false);
-    const [showMonthList, setShowMonthList] = useState(false);
-    const { setSelectedDate, hideDates, showDates } = useContext(SelectedDateContext);
-
-    const isLeapYear = (year) => {
-        return (
-            (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
-            (year % 100 === 0 && year % 400 === 0)
-        );
-    };
-
-    const getFebDays = (year) => {
-        return isLeapYear(year) ? 29 : 28;
-    };
-
-    const generateCalendar = () => {
-        const daysOfMonth = [
-            31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
-        ];
-
-        const firstDay = new Date(year, month, 1).getDay();
-
-        const days = Array.from({ length: daysOfMonth[month] }, (_, i) => i + 1)
-            .map((day) => (
-                <div
-                    key={day}
-                    className={`day ${day === new Date().getDate() &&
-                        month === new Date().getMonth() &&
-                        year === new Date().getFullYear()
-                        ? "today"
-                        : ""
-                        }`}
-                    onClick={() => handleDayClick(day, month, year)}
-                >
-                    {day}
-                </div>
-            ));
-
-        for (let i = 0; i < firstDay; i++) {
-            days.unshift(<div key={`empty-${i}`} className="empty-day"></div>);
-        }
-        return days;
-    };
-
-    const prevYear = () => {
-        hideDates();
-        setYear(year - 1);
-    };
-
-    const nextYear = () => {
-        hideDates();
-        setYear(year + 1);
-    };
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
 
-    const monthList = () => {
-        hideDates();
-        setShowMonthList(true);
-
-    }
-
-    const handleMonthClick = (index) => {
-        setMonth(index);
-        setShowMonthList(false);
-        if (index === 0) {
-            setYear(year - 1);
-        } else if (index === 11) {
-            setYear(year + 1);
-        }
-    };
-
-    const handleDayClick = (day, month, year) => {
-        const newSelectedDate = `${day}-${(month + 1).toString().padStart(2, '0')}-${(year % 100).toString().padStart(2, '0')}`;
-        setSelectedDate(newSelectedDate);
-        showDates();
-    };
 
     return (
         <div className="calendarContainer">
