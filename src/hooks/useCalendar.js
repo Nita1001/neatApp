@@ -6,12 +6,7 @@ const useCalendar = () => {
     const [year, setYear] = useState(new Date().getFullYear());
     const [showMonthList, setShowMonthList] = useState(false);
     const { setSelectedDate, hideDates, showDates } = useContext(SelectedDateContext);
-    const [isActive, setActive] = useState(false);
     const [selectedDay, setSelectedDay] = useState(null);
-
-    const toggleClass = () => {
-        setActive(!isActive);
-    }
 
     const isLeapYear = (year) => {
         return (
@@ -33,7 +28,8 @@ const useCalendar = () => {
 
         const days = Array.from({ length: daysOfMonth[month] }, (_, i) => i + 1)
             .map((day) => {
-                const isToday = day === new Date().getDate() &&
+                const isToday =
+                    day === new Date().getDate() &&
                     month === new Date().getMonth() &&
                     year === new Date().getFullYear();
                 const isSelected = day === selectedDay;
@@ -82,7 +78,6 @@ const useCalendar = () => {
     }
     const handleDayClick = (day, month, year) => {
         setSelectedDay(day);
-        toggleClass();
         const newSelectedDate = `${day}-${(month + 1).toString().padStart(2, '0')}-${(year % 100).toString().padStart(2, '0')}`;
         setSelectedDate(newSelectedDate);
         showDates();

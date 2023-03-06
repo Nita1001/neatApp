@@ -163,7 +163,7 @@ span {
     min-width: 6rem;
 }
 .card1 {
-    padding: 1.6rem;
+    padding: 1rem;
     border: var(--mid-gray) 1px dotted;
     border-radius: 0.5rem;
     margin: 1rem 0;
@@ -238,6 +238,9 @@ span {
 }
 
 /* Grid */
+.gridContainer {
+    width: 100%;
+}
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -248,6 +251,7 @@ span {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1rem;
+    width: fit-content;
 }
 
 .grid-4 {
@@ -813,15 +817,29 @@ input[type="submit"]:disabled {
     }
 }
 
-.hoursList {
+/* Available Hours List */
+
+.availableHoursContainer {
     margin: 0 auto;
-    width: 40rem;
+}
+.availableHoursContainer ul {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.availableHoursContainer h3 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.activeHour {
+    opacity: 0.5;
 }
 
 .hoursList li {
     cursor: pointer;
     width: 100%;
-    margin-bottom: 0.4rem;
+    margin-bottom: 1rem;
     font-family: "Courier New", Courier, monospace;
 }
 .hoursList li:hover {
@@ -831,11 +849,18 @@ input[type="submit"]:disabled {
 .rUSureBtn {
     cursor: grab;
     width: 10rem;
+    color: white;
+    margin-top: 1rem;
     border: 1px solid;
     border-radius: 1rem;
-    color: white;
     background-color: var(--dark-color);
 }
+
+.scheduledList {
+    background-color: var(--danger-color);
+}
+
+/* TasksList */
 
 .getScheduled {
     cursor: pointer;
@@ -845,10 +870,6 @@ input[type="submit"]:disabled {
     color: white;
     background-color: var(--dark-color);
 }
-.scheduledList {
-    background-color: var(--danger-color);
-}
-/* TasksList */
 
 .task-header {
     display: flex;

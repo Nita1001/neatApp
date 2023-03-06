@@ -9,7 +9,7 @@ const MeetingHoursList = () => {
         displayTimes,
         selectedDate,
         selectedTime,
-        setSelectedTime
+        setSelectedTime,
     } = useMeetingHoursList();
 
     const handleSetUpMeeting = async () => {
@@ -29,18 +29,32 @@ const MeetingHoursList = () => {
     return (
         <div>
             {selectedDate && (
-                <>
+                <div className='availableHoursContainer'>
                     {displayTimes && (
                         availableHours.length > 0 ? (
                             <>
                                 <h3>Available</h3>
-                                <ul className='hoursList'>
+                                <ul className='hoursList text-center'>
                                     {availableHours.map((hour) => (
-                                        <li key={hour} onClick={() => handleSelectedTime(hour)}>{hour}</li>
+                                        <li className={
+                                            selectedTime ?
+                                                selectedTime.time === hour ?
+                                                    'activeHour' : '' : null
+                                        }
+                                            key={hour}
+                                            onClick={() => handleSelectedTime(hour)}
+                                        >{hour}
+                                        </li>
                                     ))}
                                 </ul>
                                 {
-                                    selectedTime ? <><p>Set Up Your Meeting?</p><button className='rUSureBtn' onClick={handleSetUpMeeting}>Mine</button></>
+                                    selectedTime ?
+                                        <>
+                                            <p>Set Up Your Meeting?</p>
+                                            <button className='rUSureBtn'
+                                                onClick={handleSetUpMeeting}>Mine
+                                            </button>
+                                        </>
                                         : null
                                 }
                             </>
@@ -48,7 +62,7 @@ const MeetingHoursList = () => {
                             <p>None available meetings left on this day.</p>
                         )
                     )}
-                </>
+                </div>
             )}
         </div>
     );

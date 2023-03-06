@@ -39,20 +39,13 @@ const useMeetingHoursList = () => {
         setSelectedTime({ date: selectedDate, time: hour });
     }
 
-    useEffect(() => {
-        console.log(selectedTime);
-    }, [selectedTime])
-
-
-
     return {
         handleSelectedTime,
         availableHours,
         displayTimes,
         selectedDate,
         selectedTime,
-        setSelectedTime
-
+        setSelectedTime,
     };
 }
 
