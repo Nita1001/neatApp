@@ -62,7 +62,7 @@ const LogInForm = () => {
     };
 
     return (
-        <div className="container">
+        <div className="logInForm centeredContainer">
             <form className='form'>
 
                 <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
@@ -70,7 +70,7 @@ const LogInForm = () => {
                 <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
                 {passwordError && <div className="error">{passwordError}</div>}
                 <button onClick={handleLogIn}>Log In</button>
-                <Link className='signLogUp' to='/signUp'>New to nitApp?</Link>
+                <Link className='signLogUp' to='/signUp'>New to neatApp?</Link>
 
             </form>
         </div>

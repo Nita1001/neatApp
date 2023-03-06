@@ -69,7 +69,7 @@ const SignUpForm = () => {
     };
 
     return (
-        <div className="container">
+        <div className="signUpForm centeredContainer">
             <form className='form'>
                 <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
                 <input type="text" placeholder="Phone" value={phone} onChange={handlePhoneChange} />

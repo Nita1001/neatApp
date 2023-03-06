@@ -93,6 +93,24 @@ span {
     padding: 0 3.2rem;
 }
 
+.centeredContainer {
+    margin: 0 auto;
+    width: 110rem;
+    max-width: 110rem;
+}
+
+.signUpForm {
+    margin-top: 5rem;
+}
+.logInForm {
+    margin-top: 5rem;
+}
+
+.logInForm:hover,
+.signUpForm:hover {
+    background-color: #aba9a939;
+}
+
 /* Text Styles*/
 .x-large {
     font-size: 6rem;
@@ -157,21 +175,19 @@ span {
 /* Cards */
 .card {
     padding: 1.6rem;
-    border: var(--mid-gray) 1px dotted;
     border-radius: 0.5rem;
     margin: 1rem 0;
     min-width: 6rem;
+    border: var(--mid-gray) 1px dotted;
 }
 .card1 {
     padding: 1rem;
-    border: var(--mid-gray) 1px dotted;
     border-radius: 0.5rem;
     margin: 1rem 0;
     min-width: 6rem;
 }
 .card2 {
     padding: 1.6rem;
-    border: var(--mid-gray) 1px dotted;
     border-radius: 0.5rem;
     margin: 1rem 0;
     min-width: 6rem;
@@ -417,7 +433,7 @@ span {
 /* Forms */
 .form {
     padding-top: 2rem;
-    width: 20%;
+    width: 20rem;
     display: flex;
     margin: 0 auto;
     flex-direction: column;
@@ -951,8 +967,14 @@ input[type="submit"]:disabled {
     }
 
     .container,
+    .logInForm,
+    .signUpForm,
+    .centeredContainer,
     .navbar .container {
         width: 100%;
+    }
+    form {
+        min-width: 18rem;
     }
 }
 
