@@ -1,0 +1,4 @@
+export const TASKS_ACTIONS = {
+    SET_TASKS: 'SET_TASKS',
+    DELETE_TASK: 'DELETE_TASK'
+}

@@ -1,5 +1,6 @@
 import { getUserById, updateUsersData } from '../api/userServices';
 import useMeetingsList from '../hooks/useMeetingsList';
+import ScheduledMeetings from './ScheduledMeetings';
 
 const MeetingsList = () => {
 
@@ -17,11 +18,8 @@ const MeetingsList = () => {
             const id = localStorage.getItem('userToken');
             const user = await getUserById(id);
             if (user) {
-                console.log('before', user.schedules);
                 const updatedSchedules = [...user.schedules, selectedTime];
-                console.log('after', updatedSchedules);
-                const response = await updateUsersData(user.id, { schedules: updatedSchedules });
-                console.log(response);
+                await updateUsersData(user.id, { schedules: updatedSchedules });
             }
         } catch (error) {
             console.error(error);
@@ -48,12 +46,14 @@ const MeetingsList = () => {
                                 }
                             </>
                         ) : (
-                            <p>None available meetings for this date.</p>
+                            <p>None available meetings left on this day.</p>
                         )
                     )}
-
                 </>
             )}
+            <div>
+                <ScheduledMeetings />
+            </div>
         </div>
     );
 }
