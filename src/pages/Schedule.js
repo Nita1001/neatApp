@@ -1,6 +1,6 @@
 import React from 'react'
 import MeetingScheduler from '../components/MeetingScheduler'
-import MeetingsList from '../components/MeetingsList'
+import MeetingHoursList from '../components/MeetingHoursList'
 import { Helmet } from 'react-helmet'
 const Schedule = () => {
 
@@ -12,7 +12,7 @@ const Schedule = () => {
             <div>Schedule
                 <h5>Manage Your Account</h5>
                 <MeetingScheduler />
-                <MeetingsList />
+                <MeetingHoursList />
                 <div className='grid-3'>
 
                     <div className='card'>

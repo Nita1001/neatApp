@@ -1,8 +1,8 @@
 import { getUserById, updateUsersData } from '../api/userServices';
-import useMeetingsList from '../hooks/useMeetingsList';
+import useMeetingHoursList from '../hooks/useMeetingHoursList';
 import ScheduledMeetings from './ScheduledMeetings';
 
-const MeetingsList = () => {
+const MeetingHoursList = () => {
 
     const {
         handleSelectedTime,
@@ -11,7 +11,7 @@ const MeetingsList = () => {
         selectedDate,
         selectedTime,
         setSelectedTime
-    } = useMeetingsList();
+    } = useMeetingHoursList();
 
     const handleSetUpMeeting = async () => {
         try {
@@ -58,4 +58,4 @@ const MeetingsList = () => {
     );
 }
 
-export default MeetingsList
+export default MeetingHoursList

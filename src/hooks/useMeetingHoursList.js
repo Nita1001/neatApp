@@ -4,7 +4,7 @@ import { SelectedDateContext } from '../contexts/SelectedDateContext';
 import { TIME_SLOTS } from '../utils/constants';
 
 
-const useMeetingsList = () => {
+const useMeetingHoursList = () => {
     const { selectedDate, displayTimes, selectedTime, setSelectedTime } = useContext(SelectedDateContext);
     const [availableHours, setAvailableHours] = useState([]);
 
@@ -56,4 +56,4 @@ const useMeetingsList = () => {
     };
 }
 
-export default useMeetingsList
+export default useMeetingHoursList
