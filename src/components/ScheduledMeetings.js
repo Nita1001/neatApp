@@ -1,5 +1,4 @@
 import React from 'react';
-import Tasks from './Tasks';
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 
 const ScheduledMeetings = () => {
@@ -8,8 +7,12 @@ const ScheduledMeetings = () => {
     return (
         <div>
             <br />
-            <button onClick={getTasks}>Get</button>
-            <Tasks />
+            <button
+                className='getScheduled'
+                onClick={getTasks}
+            >My Schedule
+            </button>
+
         </div>
     );
 };

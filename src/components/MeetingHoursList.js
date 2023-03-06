@@ -1,6 +1,5 @@
 import { getUserById, updateUsersData } from '../api/userServices';
 import useMeetingHoursList from '../hooks/useMeetingHoursList';
-import ScheduledMeetings from './ScheduledMeetings';
 
 const MeetingHoursList = () => {
 
@@ -35,13 +34,13 @@ const MeetingHoursList = () => {
                         availableHours.length > 0 ? (
                             <>
                                 <h3>Available</h3>
-                                <ul>
+                                <ul className='hoursList'>
                                     {availableHours.map((hour) => (
                                         <li key={hour} onClick={() => handleSelectedTime(hour)}>{hour}</li>
                                     ))}
                                 </ul>
                                 {
-                                    selectedTime ? <><p>are you sure?</p><button onClick={handleSetUpMeeting}>yes</button></>
+                                    selectedTime ? <><p>Set Up Your Meeting?</p><button className='rUSureBtn' onClick={handleSetUpMeeting}>Mine</button></>
                                         : null
                                 }
                             </>
@@ -51,9 +50,6 @@ const MeetingHoursList = () => {
                     )}
                 </>
             )}
-            <div>
-                <ScheduledMeetings />
-            </div>
         </div>
     );
 }

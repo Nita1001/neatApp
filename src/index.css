@@ -527,7 +527,7 @@ input[type="submit"]:disabled {
     align-items: center;
     justify-content: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .dark {
@@ -813,7 +813,42 @@ input[type="submit"]:disabled {
     }
 }
 
-/* TaskList/ Todo */
+.hoursList {
+    margin: 0 auto;
+    width: 40rem;
+}
+
+.hoursList li {
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 0.4rem;
+    font-family: "Courier New", Courier, monospace;
+}
+.hoursList li:hover {
+    transform: scale(1.2);
+}
+
+.rUSureBtn {
+    cursor: grab;
+    width: 10rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    color: white;
+    background-color: var(--dark-color);
+}
+
+.getScheduled {
+    cursor: pointer;
+    width: 10rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    color: white;
+    background-color: var(--dark-color);
+}
+.scheduledList {
+    background-color: var(--danger-color);
+}
+/* TasksList */
 
 .task-header {
     display: flex;
@@ -911,8 +946,17 @@ input[type="submit"]:disabled {
     }
 
     .grid-2,
-    .grid-3,
     .grid-4 {
         grid-template-columns: 1fr;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .grid-3 .card {
+        order: 1;
+    }
+    .grid-3 .card2 {
+        order: 2;
     }
 }
