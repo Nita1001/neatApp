@@ -1,8 +1,10 @@
 import { getUserById, updateUsersData } from '../api/userServices';
 import useMeetingHoursList from '../hooks/useMeetingHoursList';
+import { useContext } from 'react';
+import { LogInContext } from '../contexts/LogInContext';
 
 const MeetingHoursList = () => {
-
+    const { usersId } = useContext(LogInContext);
     const {
         handleSelectedTime,
         availableHours,
@@ -13,10 +15,15 @@ const MeetingHoursList = () => {
     } = useMeetingHoursList();
 
     const handleSetUpMeeting = async () => {
+
         try {
-            const id = localStorage.getItem('userToken');
-            const user = await getUserById(id);
+            const user = await getUserById(usersId);
             if (user) {
+
+                const found = user.schedules.find((scheduled) => scheduled.date === selectedDate)
+                if (found) {
+                    console.log(found);
+                }
                 const updatedSchedules = [...user.schedules, selectedTime];
                 await updateUsersData(user.id, { schedules: updatedSchedules });
             }
