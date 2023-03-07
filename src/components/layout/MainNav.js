@@ -1,15 +1,11 @@
 import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import useLogOut from '../../hooks/useLogOut';
 import { LogInContext } from '../../contexts/LogInContext';
-import { useNavigate } from 'react-router-dom';
-const MainNav = () => {
-    const { isLoggedIn, logOut } = useContext(LogInContext);
-    const navigate = useNavigate();
 
-    const handleLogout = () => {
-        logOut();
-        navigate('/');
-    };
+const MainNav = () => {
+    const { isLoggedIn } = useContext(LogInContext);
+    const { handleLogout } = useLogOut();
 
     return (
         <nav className="navbar bg-dark">
