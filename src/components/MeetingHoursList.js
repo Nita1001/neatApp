@@ -1,37 +1,15 @@
-import { getUserById, updateUsersData } from '../api/userServices';
 import useMeetingHoursList from '../hooks/useMeetingHoursList';
-import { useContext } from 'react';
-import { LogInContext } from '../contexts/LogInContext';
 
 const MeetingHoursList = () => {
-    const { usersId } = useContext(LogInContext);
     const {
         handleSelectedTime,
-        availableHours,
-        displayTimes,
+        handleSetUpMeeting,
         selectedDate,
-        selectedTime,
-        setSelectedTime,
+        displayTimes,
+        availableHours,
+        selectedTime
     } = useMeetingHoursList();
 
-    const handleSetUpMeeting = async () => {
-
-        try {
-            const user = await getUserById(usersId);
-            if (user) {
-
-                const found = user.schedules.find((scheduled) => scheduled.date === selectedDate)
-                if (found) {
-                    console.log(found);
-                }
-                const updatedSchedules = [...user.schedules, selectedTime];
-                await updateUsersData(user.id, { schedules: updatedSchedules });
-            }
-        } catch (error) {
-            console.error(error);
-        }
-        setSelectedTime(null);
-    };
 
     return (
         <div>
