@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTaskGlobalContext } from '../contexts/TasksContext';
-
+import { LogInContext } from '../contexts/LogInContext';
 const ScheduledMeetings = () => {
-    const { setShowScheduled, showScheduled, getTasks } = useTaskGlobalContext();
+    const { showScheduled, setShowScheduled, getTasks } = useTaskGlobalContext();
+    const { usersId } = useContext(LogInContext);
 
     const handleClick = () => {
         setShowScheduled(!showScheduled);
-        getTasks();
+        getTasks(usersId);
     }
 
     return (
@@ -15,7 +16,7 @@ const ScheduledMeetings = () => {
             <button
                 className='getScheduled'
                 onClick={handleClick}
-            >My Schedule
+            > My Schedule
             </button>
         </div>
     );

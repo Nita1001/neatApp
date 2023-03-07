@@ -3,19 +3,19 @@ import uniqid from 'uniqid'
 import { getUsersSchedule, updateUsersData, getUserById } from '../api/userServices'
 import tasksReducer from '../reducers/tasksReducer';
 import { TASKS_ACTIONS } from '../actions/tasksActions'
+import { LogInContext } from './LogInContext';
 export const TasksContext = createContext(null);
 
 const TasksContextProvider = ({ children }) => {
-    const usersId = localStorage.getItem('userToken');
-    const [showScheduled, setShowScheduled] = useState(false);
 
+    const { usersId } = useContext(LogInContext);
+    const [showScheduled, setShowScheduled] = useState(false);
     const initialState = {
         tasks: []
     };
-
     const [state, dispatch] = useReducer(tasksReducer, initialState);
 
-    const getTasks = async () => {
+    const getTasks = async (usersId) => {
         try {
             const schedules = await getUsersSchedule(usersId);
             if (schedules) {

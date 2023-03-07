@@ -11,12 +11,22 @@ const LogInProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(
         JSON.parse(localStorage.getItem('isLoggedIn')) || false
     );
+    const [usersId, setUsersId] = useState('');
 
     useEffect(() => {
         localStorage.setItem('isLoggedIn', JSON.stringify(isLoggedIn));
     }, [isLoggedIn]);
 
     const logIn = () => setIsLoggedIn(true);
+
+    useEffect(() => {
+        if (isLoggedIn) {
+            const userId = localStorage.getItem('userToken');
+            setUsersId(userId);
+        } else {
+            setUsersId(0);
+        }
+    }, [isLoggedIn])
 
     const logOut = async () => {
         try {
@@ -38,7 +48,7 @@ const LogInProvider = ({ children }) => {
     };
 
     return (
-        <LogInContext.Provider value={{ isLoggedIn, logIn, logOut }}>
+        <LogInContext.Provider value={{ isLoggedIn, logIn, logOut, usersId }}>
             {children}
         </LogInContext.Provider>
     );
