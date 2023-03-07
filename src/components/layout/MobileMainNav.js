@@ -1,17 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LogInContext } from '../../contexts/LogInContext';
-import { useNavigate } from 'react-router-dom';
+import useLogOut from '../../hooks/useLogOut';
 
 const MobileMainNav = () => {
 
-    const { isLoggedIn, logOut } = useContext(LogInContext);
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        logOut();
-        navigate('/');
-    };
+    const { isLoggedIn } = useContext(LogInContext);
+    const { handleLogout } = useLogOut();
 
     return (
         <>
