@@ -1,15 +1,17 @@
+
 import Task from './Task'
 import Input from './Input'
 import Button from './Button'
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 
+
 const Tasks = () => {
-    const { tasks, deleteTask } = useTaskGlobalContext();
+    const { tasks, deleteTask, showScheduled } = useTaskGlobalContext();
 
     return (
         <header className='task-header'>
             <div className='tasks-container'>
-                {tasks.map((task) => {
+                {showScheduled && tasks.map((task) => {
                     return (
                         <div key={task.id} className='taskField'>
                             <Input

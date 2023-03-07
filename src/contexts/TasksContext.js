@@ -1,4 +1,4 @@
-import { useContext, useReducer, useCallback, createContext } from 'react'
+import { useContext, useReducer, useCallback, createContext, useState } from 'react'
 import uniqid from 'uniqid'
 import { getUsersSchedule, updateUsersData, getUserById } from '../api/userServices'
 import tasksReducer from '../reducers/tasksReducer';
@@ -7,6 +7,7 @@ export const TasksContext = createContext(null);
 
 const TasksContextProvider = ({ children }) => {
     const usersId = localStorage.getItem('userToken');
+    const [showScheduled, setShowScheduled] = useState(false);
 
     const initialState = {
         tasks: []
@@ -59,7 +60,9 @@ const TasksContextProvider = ({ children }) => {
                 createTask,
                 deleteTask,
                 tasks: state.tasks,
-                getTasks
+                getTasks,
+                showScheduled,
+                setShowScheduled
             }}
         >
             {children}

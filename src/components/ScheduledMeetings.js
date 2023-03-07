@@ -2,17 +2,21 @@ import React from 'react';
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 
 const ScheduledMeetings = () => {
-    const { getTasks } = useTaskGlobalContext();
+    const { setShowScheduled, showScheduled, getTasks } = useTaskGlobalContext();
+
+    const handleClick = () => {
+        setShowScheduled(!showScheduled);
+        getTasks();
+    }
 
     return (
         <div>
             <br />
             <button
                 className='getScheduled'
-                onClick={getTasks}
+                onClick={handleClick}
             >My Schedule
             </button>
-
         </div>
     );
 };
