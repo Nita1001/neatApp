@@ -11,18 +11,6 @@ export const createUser = async (user) => {
   }
 };
 
-export const createSchedule = async (id, updatedData) => {
-  try {
-    const currentUser = await getUserById(id);
-    console.log('API current user', currentUser);
-
-    return currentUser.data;
-  } catch (error) {
-    console.error(error);
-    throw new Error(API_ERROR_MESSAGE);
-  }
-};
-
 export const logInUser = async (email, password) => {
   try {
     const response = await axios.get(USERS_URL);
@@ -49,6 +37,17 @@ export const getUserById = async (userId) => {
   try {
     const response = await axios.get(`${USERS_URL}/${userId}`);
     return response.data;
+  } catch (error) {
+    console.error(error);
+    throw new Error(API_ERROR_MESSAGE);
+  }
+};
+
+export const createSchedule = async (id, updatedData) => {
+  try {
+    const currentUser = await getUserById(id);
+    console.log('API current user', currentUser);
+    return currentUser.data;
   } catch (error) {
     console.error(error);
     throw new Error(API_ERROR_MESSAGE);
