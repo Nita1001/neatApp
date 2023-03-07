@@ -997,7 +997,7 @@ input[type="submit"]:disabled {
 
 .availableHoursContainer {
     margin: 0 auto;
-    padding-top: 10rem;
+    padding-top: 4rem;
 }
 .availableHoursContainer ul {
     margin: 0 auto;
