@@ -5,13 +5,15 @@ const ScheduledMeetings = () => {
     const { showScheduled, setShowScheduled, getTasks } = useTaskGlobalContext();
     const { usersId } = useContext(LogInContext);
 
-    const handleClick = () => {
+    const handleClick = async () => {
+        await getTasks(usersId);
+        // Because it was showing for half a second the scheduled meetings of previous user
+        // Ive decided to put async await here. might change later, should ask ori about it. 
         setShowScheduled(!showScheduled);
-        getTasks(usersId);
     }
 
     return (
-        <div>
+        <div className='myScheduledMeetings'>
             <br />
             <button
                 className='getScheduled'
