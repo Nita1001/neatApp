@@ -335,7 +335,6 @@ span {
     border-radius: 0.5rem;
     margin: 1rem 0;
     min-width: 6rem;
-    border: var(--mid-gray) 1px dotted;
 }
 .card1 {
     padding: 1rem;
@@ -697,6 +696,10 @@ input[type="submit"]:disabled {
 
 /* Calendar styles */
 
+.calendarsGridContainer {
+    width: 100%;
+}
+
 /* OTHER */
 
 .calendarContainer {
@@ -994,6 +997,7 @@ input[type="submit"]:disabled {
 
 .availableHoursContainer {
     margin: 0 auto;
+    padding-top: 10rem;
 }
 .availableHoursContainer ul {
     margin: 0 auto;
@@ -1035,6 +1039,14 @@ input[type="submit"]:disabled {
 
 /* TasksList */
 
+.myScheduledMeetings {
+    margin-top: 7rem;
+}
+
+.myScheduledMeetings button {
+    margin-bottom: 1.2rem;
+}
+
 .getScheduled {
     cursor: pointer;
     width: 10rem;
@@ -1061,7 +1073,7 @@ input[type="submit"]:disabled {
 }
 
 .task {
-    width: 40%;
+    width: 50%;
     font-size: small;
 }
 
@@ -1155,8 +1167,23 @@ input[type="submit"]:disabled {
     }
     .grid-3 .card {
         order: 1;
+        padding: 0;
+        margin-bottom: 0;
     }
     .grid-3 .card2 {
         order: 2;
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .myScheduledMeetings {
+        margin-top: 0;
+    }
+
+    .availableHoursContainer {
+        padding: 0;
+    }
+    .availableHoursContainer h3 {
+        margin: 0;
+        margin-bottom: 2rem;
     }
 }
