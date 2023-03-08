@@ -4,6 +4,7 @@ import { getUsersSchedule, updateUsersData, getUserById } from '../api/userServi
 import tasksReducer from '../reducers/tasksReducer';
 import { TASKS_ACTIONS } from '../actions/tasksActions'
 import { LogInContext } from './LogInContext';
+
 export const TasksContext = createContext(null);
 
 const TasksContextProvider = ({ children }) => {
@@ -11,10 +12,9 @@ const TasksContextProvider = ({ children }) => {
     const { usersId } = useContext(LogInContext);
     const [showScheduled, setShowScheduled] = useState(false);
     const initialState = {
-        tasks: []
+        tasks: [],
     };
     const [state, dispatch] = useReducer(tasksReducer, initialState);
-
     const getTasks = async (usersId) => {
         try {
             const schedules = await getUsersSchedule(usersId);
@@ -32,7 +32,7 @@ const TasksContextProvider = ({ children }) => {
             date,
             time,
             id: uniqid(),
-            state: 'incomplete'
+            status: 'incomplete'
         }
     }, []);
 
@@ -54,6 +54,35 @@ const TasksContextProvider = ({ children }) => {
         deleteMeetingFromAPI(updatedTasks);
     };
 
+    const handleChecked = (id) => {
+        const task = state.tasks.find(t => t.id === id);
+        console.log(task)
+        const status = task.status === 'complete' ? 'incomplete' : 'complete';
+        dispatch({
+            type: TASKS_ACTIONS.TOGGLE_CHECKED,
+            payload: { id, status },
+        });
+        updateMeetingsStatusOnAPI();
+    };
+
+    const updateMeetingsStatusOnAPI = async () => {
+        try {
+            const user = await getUserById(usersId);
+            if (user) {
+                await updateUsersData(usersId, { schedules: state.tasks });
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const getCheckedTasks = (tasks) => {
+        const checked = tasks.filter((task) => task.state === 'complete');
+        return checked;
+    };
+
+    const checkedTasks = getCheckedTasks(state.tasks);
+
     return (
         <TasksContext.Provider
             value={{
@@ -62,7 +91,10 @@ const TasksContextProvider = ({ children }) => {
                 tasks: state.tasks,
                 getTasks,
                 showScheduled,
-                setShowScheduled
+                setShowScheduled,
+                handleChecked,
+                checkedTasks,
+                updateMeetingsStatusOnAPI
             }}
         >
             {children}

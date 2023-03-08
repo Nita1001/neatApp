@@ -1,12 +1,12 @@
 
+// import { useEffect, useState } from 'react'
 import Task from './Task'
 import Input from './Input'
 import Button from './Button'
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 
-
 const Tasks = () => {
-    const { tasks, deleteTask, showScheduled } = useTaskGlobalContext();
+    const { tasks, deleteTask, showScheduled, handleChecked } = useTaskGlobalContext();
 
     return (
         <header className='task-header'>
@@ -15,13 +15,13 @@ const Tasks = () => {
                     return (
                         <div key={task.id} className='taskField'>
                             <Input
-                                key={`checkbox-${task.id}`}
                                 id='checkbox'
+                                name={`checkbox[${task.id}]`}
                                 type='checkbox'
+                                handleNewInput={() => handleChecked(task.id)}
                             />
-                            <Task key={`task-${task.id}`} task={task} />
+                            <Task isChecked={task.status === 'complete'} task={task} />
                             <Button
-                                key={`trash-${task.id}`}
                                 className='trash'
                                 title='Delete'
                                 handleClick={() => deleteTask(task)}
