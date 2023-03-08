@@ -10,6 +10,7 @@ const useMeetingHoursList = () => {
     const { selectedDate, displayTimes, selectedTime, setSelectedTime } = useContext(SelectedDateContext);
     const [availableHours, setAvailableHours] = useState([]);
     const { usersId } = useContext(LogInContext);
+    const [alreadyBooked, setAlreadyBooked] = useState(false);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -45,8 +46,14 @@ const useMeetingHoursList = () => {
         try {
             const user = await getUserById(usersId);
             if (user) {
-                const updatedSchedules = [...user.schedules, selectedTime];
-                await updateUsersData(user.id, { schedules: updatedSchedules });
+                const found = user.schedules.find((scheduled) => scheduled.date === selectedDate)
+                if (found) {
+                    console.log('CANT!', found);
+                    return setAlreadyBooked(true);;
+                } else {
+                    const updatedSchedules = [...user.schedules, selectedTime];
+                    await updateUsersData(user.id, { schedules: updatedSchedules });
+                }
             }
         } catch (error) {
             console.error(error);
@@ -62,6 +69,8 @@ const useMeetingHoursList = () => {
         selectedTime,
         setSelectedTime,
         handleSetUpMeeting,
+        alreadyBooked,
+        setAlreadyBooked
     };
 }
 
