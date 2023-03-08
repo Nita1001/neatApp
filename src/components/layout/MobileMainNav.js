@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LogInContext } from '../../contexts/LogInContext';
 import useLogOut from '../../hooks/useLogOut';
@@ -7,11 +7,20 @@ const MobileMainNav = () => {
 
     const { isLoggedIn } = useContext(LogInContext);
     const { handleLogout } = useLogOut();
+    const [menuClicked, setMenuClicked] = useState(false);
+
+    const handleMenuWrapClick = (event) => {
+        console.log('clicked');
+        if (!event.target.classList.contains("toggle")) {
+            console.log('toggled');
+            setMenuClicked(!menuClicked);
+        }
+    };
 
     return (
         <>
-            <div className="menu-wrap">
-                <input type="checkbox" className="toggle"></input>
+            <div className="menu-wrap" onClick={(event) => handleMenuWrapClick(event)}>
+                <input type="checkbox" className='toggle' checked={menuClicked} />
                 <div className="burger">
                     <div></div>
                 </div>
@@ -76,12 +85,6 @@ const MobileMainNav = () => {
                     </div>
                 </div>
             </div>
-            {/* {
-                showNavLinks ?
-                <div></div>
-                :
-                <div></div>
-            } */}
         </>
     )
 }
