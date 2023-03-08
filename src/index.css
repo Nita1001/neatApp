@@ -1026,7 +1026,7 @@ input[type="submit"]:disabled {
     margin-top: 14rem;
 }
 
-.rUSureBtn {
+.mineBtn {
     cursor: grab;
     width: 10rem;
     color: white;
@@ -1034,6 +1034,16 @@ input[type="submit"]:disabled {
     border: 1px solid;
     border-radius: 1rem;
     background-color: var(--dark-color);
+}
+
+.editMeetingBtn {
+    cursor: grab;
+    width: 11rem;
+    color: white;
+    margin-top: 1rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    background-color: var(--danger-color);
 }
 
 .scheduledList {
