@@ -10,12 +10,12 @@ const MobileMainNav = () => {
 
     return (
         <>
-            <div class="menu-wrap">
+            <div className="menu-wrap">
                 <input type="checkbox" className="toggle"></input>
-                <div class="burger">
+                <div className="burger">
                     <div></div>
                 </div>
-                <div class="menu">
+                <div className="menu">
                     <div>
                         <div>
                             <ul>
