@@ -1,16 +1,26 @@
 import useMeetingHoursList from '../hooks/useMeetingHoursList';
-
+import useMySchedule from '../hooks/useMySchedule';
 const MeetingHoursList = () => {
+    const { handleMySchedule } = useMySchedule();
+
     const {
         handleSelectedTime,
         handleSetUpMeeting,
         selectedDate,
         displayTimes,
         availableHours,
-        selectedTime
+        selectedTime,
+        alreadyBooked,
+        setAlreadyBooked
     } = useMeetingHoursList();
 
-
+    const handleNewMeeting = (hour) => {
+        handleSelectedTime(hour);
+        setAlreadyBooked(false);
+    }
+    const handleEditSchedule = () => {
+        handleMySchedule();
+    }
     return (
         <div>
             {selectedDate && (
@@ -27,24 +37,35 @@ const MeetingHoursList = () => {
                                                     'activeHour' : '' : null
                                         }
                                             key={hour}
-                                            onClick={() => handleSelectedTime(hour)}
+                                            onClick={() => handleNewMeeting(hour)}
                                         >{hour}
                                         </li>
                                     ))}
                                 </ul>
                                 {
                                     selectedTime ?
-                                        <>
-                                            <p>Set Up Your Meeting?</p>
-                                            <button className='rUSureBtn'
-                                                onClick={handleSetUpMeeting}>Mine
-                                            </button>
-                                        </>
+                                        <div className='setUpParagraph'>
+                                            {!alreadyBooked ?
+                                                <>
+                                                    <p> Set Up Your Meeting? </p>
+                                                    <button className='mineBtn'
+                                                        onClick={handleSetUpMeeting}>Mine
+                                                    </button>
+                                                </>
+                                                :
+                                                <>
+                                                    <p> Can't have multiple meetings same Day..</p>
+                                                    <button className='editMeetingBtn'
+                                                        onClick={handleEditSchedule}> Edit meeting
+                                                    </button>
+                                                </>
+                                            }
+                                        </div>
                                         : null
                                 }
                             </>
                         ) : (
-                            <p>None available meetings left on this day.</p>
+                            <p className='noneAvailableParagraph'>None available meetings left on this day.</p>
                         )
                     )}
                 </div>
