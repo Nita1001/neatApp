@@ -2,16 +2,16 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 import { LogInContext } from '../contexts/LogInContext';
-import useMeetingHoursList from './useMeetingHoursList';
+import { SelectedDateContext } from '../contexts/SelectedDateContext';
 const useLogOut = () => {
     const { logOut } = useContext(LogInContext);
     const { setShowScheduled } = useTaskGlobalContext();
     const navigate = useNavigate();
-    const { setSelectedTime } = useMeetingHoursList();
+    const { hideDates } = useContext(SelectedDateContext);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         setShowScheduled(false);
-        setSelectedTime(null);
+        hideDates();
         logOut();
         navigate('/logIn');
     };
