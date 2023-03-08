@@ -1204,4 +1204,14 @@ input[type="submit"]:disabled {
     .noneAvailableParagraph {
         margin-top: 0;
     }
+    button {
+        height: 5rem;
+    }
+    ul .hoursList {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: fit-content;
+        height: 50%;
+    }
 }
