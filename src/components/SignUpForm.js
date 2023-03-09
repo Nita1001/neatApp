@@ -20,6 +20,7 @@ const SignUpForm = () => {
     return (
         <div className="signUpForm centeredContainer">
             <form className='form'>
+                <div className='topBlock'></div>
                 <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
                 <input type="text" placeholder="Phone" value={phone} onChange={handlePhoneChange} />
                 {isSubmitted && phoneError && <div className="error">{phoneError}</div>}

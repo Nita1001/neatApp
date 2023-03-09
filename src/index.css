@@ -268,11 +268,9 @@ span {
     max-width: 110rem;
 }
 
+.logInForm,
 .signUpForm {
-    margin-top: 5rem;
-}
-.logInForm {
-    margin-top: 5rem;
+    margin: 0 auto;
 }
 
 .logInForm:hover,
@@ -602,6 +600,12 @@ span {
 }
 
 /* Forms */
+
+.topBlock {
+    width: 4rem;
+    height: 14rem;
+}
+
 .form {
     width: 20rem;
     display: flex;
@@ -1222,7 +1226,7 @@ input[type="submit"]:disabled {
     }
 
     button {
-        height: 5rem;
+        height: 4rem;
     }
     .btnLogOut {
         height: 3rem;
@@ -1285,8 +1289,7 @@ input[type="submit"]:disabled {
         margin-top: 0;
     }
     button {
-        height: 5rem;
-        width: 15rem;
+        width: 20rem;
     }
     ul .hoursList {
         display: flex;

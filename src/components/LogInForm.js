@@ -16,6 +16,7 @@ const LogInForm = () => {
     return (
         <div className="logInForm centeredContainer">
             <form className='form'>
+                <div className='topBlock'></div>
                 <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
                 {emailError && <div className="error">{emailError}</div>}
                 <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
