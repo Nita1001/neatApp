@@ -12,7 +12,7 @@ const Schedule = () => {
             <Helmet>
                 <title>NeatApp | Schedule</title>
             </Helmet>
-            <div className='calendarsGridContainer'>
+            <div className='schedule calendarsGridContainer'>
                 <div className='grid-3'>
                     <div className='card'>
                         <MeetingHoursList />

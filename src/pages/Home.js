@@ -6,22 +6,20 @@ const Home = () => {
             <Helmet>
                 <title>NeatApp | Home</title>
             </Helmet>
-            <div className='Home'>
-                Home Page
-            </div>
-            <div className='grid-2'>
-
-                <div className='card'>
-                    Some field
-                </div>
-                <div className='card'>
-                    Some field
-                </div>
-                <div className='card'>
-                    Some field
-                </div>
-                <div className='card'>
-                    Some field
+            <div className='home'>
+                <div className='grid-2'>
+                    <div className='homeCard'>
+                        Some field
+                    </div>
+                    <div className='homeCard'>
+                        Some field
+                    </div>
+                    <div className='homeCard'>
+                        Some field
+                    </div>
+                    <div className='homeCard'>
+                        Some field
+                    </div>
                 </div>
             </div>
         </>

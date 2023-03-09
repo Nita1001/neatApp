@@ -5,7 +5,7 @@ import SharedLayout from './components/layout/SharedLayout';
 function App() {
   return (
     <BrowserRouter>
-      <div className="text-center">
+      <div className="pagesContainer text-center">
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />

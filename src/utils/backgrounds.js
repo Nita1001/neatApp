@@ -1,8 +1,8 @@
-
 const backgrounds = {
     '/': '',
     '/schedule': 'scheduleBackground',
-    // Add more entries for each page here
+    '/profile': 'profileBackground',
+    '/admin': 'adminBackground',
 };
 
 export default backgrounds;
