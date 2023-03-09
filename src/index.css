@@ -1195,11 +1195,14 @@ input[type="submit"]:disabled {
 
     .grid-3 {
         grid-template-columns: 1fr;
+        padding-top: 3rem;
+        grid-gap: 0;
     }
     .grid-3 .card {
         order: 1;
         padding: 0;
         margin-bottom: 0;
+        margin-top: 0;
     }
     .grid-3 .card2 {
         order: 2;
@@ -1209,13 +1212,15 @@ input[type="submit"]:disabled {
     .myScheduledMeetings {
         margin-top: 0;
     }
-
     .availableHoursContainer {
         padding: 0;
+        margin-top: 0;
+        width: 38.2rem;
+        min-width: 10rem;
     }
     .availableHoursContainer h3 {
         margin: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 0;
     }
     .noneAvailableParagraph {
         margin-top: 0;
