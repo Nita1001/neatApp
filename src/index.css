@@ -66,10 +66,17 @@ body {
     font-family: "Roboto", "Arimo", sans-serif;
     /* background-image: url("./assets/images/abstract_pastel_low_poly_design_2809.jpg"); */
     /* background-image: url("./assets/images/SL_042620.jpg"); */
-    background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
     /* background-image: url("./assets/images/rm373batch2-08.jpg"); */
+    background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
+    /* background-image: url("./assets/images/17740155_159Z_2107.w026.n002.628B.p1.628.jpg"); */
     background-repeat: no-repeat;
     background-blend-mode: darken;
+}
+
+.HomeBackground {
+    /* background-image: url("./assets/images/17740155_159Z_2107.w026.n002.628B.p1.628.jpg");
+
+    background-repeat: no-repeat; */
 }
 
 a {
@@ -1043,9 +1050,10 @@ input[type="submit"]:disabled {
 .mineBtn {
     cursor: grab;
     width: 10rem;
+    height: 3rem;
     color: white;
     margin-top: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.4rem;
     border: 1px solid;
     border-radius: 1rem;
     background-color: var(--dark-color);
@@ -1054,10 +1062,11 @@ input[type="submit"]:disabled {
 .editMeetingBtn {
     cursor: grab;
     width: 11rem;
+    height: 3rem;
     color: white;
     margin-top: 1rem;
-    margin-bottom: 2rem;
     border: 1px solid;
+    margin-bottom: 2rem;
     border-radius: 1rem;
     background-color: var(--danger-color);
 }
@@ -1211,8 +1220,12 @@ input[type="submit"]:disabled {
     .noneAvailableParagraph {
         margin-top: 0;
     }
+
     button {
         height: 5rem;
+    }
+    .btnLogOut {
+        height: 3rem;
     }
 
     .container,
@@ -1261,6 +1274,10 @@ input[type="submit"]:disabled {
     .hoursList li {
         font-size: 2.2rem;
     }
+    .btnLogOut {
+        height: 5rem;
+        width: 15rem;
+    }
 }
 
 @media (max-width: 500px) {
@@ -1269,6 +1286,7 @@ input[type="submit"]:disabled {
     }
     button {
         height: 5rem;
+        width: 15rem;
     }
     ul .hoursList {
         display: flex;
