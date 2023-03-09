@@ -1166,6 +1166,50 @@ input[type="submit"]:disabled {
         font-size: 1.6rem;
     }
 
+    .grid-2,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+        margin: 0 auto;
+        grid-gap: 0;
+    }
+    .grid-3 .card {
+        order: 1;
+        padding: 0;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .grid-3 .card2 {
+        order: 2;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .myScheduledMeetings {
+        margin-top: 0;
+    }
+
+    .availableHoursContainer {
+        padding: 0;
+        margin-top: 0;
+        width: 38.2rem;
+        min-width: 10rem;
+    }
+    .availableHoursContainer h3 {
+        margin: 0;
+        margin-bottom: 0;
+    }
+
+    .noneAvailableParagraph {
+        margin-top: 0;
+    }
+    button {
+        height: 5rem;
+    }
+
     .container,
     .logInForm,
     .signUpForm,
@@ -1209,19 +1253,9 @@ input[type="submit"]:disabled {
         padding-top: 0;
         margin-top: 0;
     }
-    .myScheduledMeetings {
-        margin-top: 0;
-    }
-    .availableHoursContainer {
-        padding: 0;
-        margin-top: 0;
-        width: 38.2rem;
-        min-width: 10rem;
-    }
-    .availableHoursContainer h3 {
-        margin: 0;
-        margin-bottom: 0;
-    }
+}
+
+@media (max-width: 500px) {
     .noneAvailableParagraph {
         margin-top: 0;
     }
