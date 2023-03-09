@@ -11,6 +11,8 @@ const LogInProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(
         JSON.parse(localStorage.getItem('isLoggedIn')) || false
     );
+
+    const [isAdmin, setIsAdmin] = useState(false);
     const [usersId, setUsersId] = useState('');
 
     useEffect(() => {
@@ -23,6 +25,10 @@ const LogInProvider = ({ children }) => {
         if (isLoggedIn) {
             const userId = localStorage.getItem('userToken');
             setUsersId(userId);
+            if (userId === '3') {
+                setIsAdmin(true);
+                console.log('Admin LoggedIn');
+            }
         } else {
             setUsersId(0);
         }
@@ -41,6 +47,7 @@ const LogInProvider = ({ children }) => {
                 user
             );
             setIsLoggedIn(false);
+            setIsAdmin(false);
             localStorage.removeItem('userToken');
         } catch (error) {
             console.error(error);
@@ -48,7 +55,7 @@ const LogInProvider = ({ children }) => {
     };
 
     return (
-        <LogInContext.Provider value={{ isLoggedIn, logIn, logOut, usersId }}>
+        <LogInContext.Provider value={{ isLoggedIn, logIn, logOut, usersId, isAdmin }}>
             {children}
         </LogInContext.Provider>
     );

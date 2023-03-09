@@ -5,7 +5,7 @@ import useLogOut from '../../hooks/useLogOut';
 
 const MobileMainNav = () => {
 
-    const { isLoggedIn } = useContext(LogInContext);
+    const { isLoggedIn, isAdmin } = useContext(LogInContext);
     const { handleLogout } = useLogOut();
     const [menuClicked, setMenuClicked] = useState(false);
     const inputRef = useRef(null);
@@ -51,10 +51,14 @@ const MobileMainNav = () => {
                                     <>
                                         <li>
                                             <NavLink
-                                                to="/profile"
+                                                to={
+                                                    isAdmin ? 'Admin' :
+                                                        "/profile"
+                                                }
+
                                                 className={({ isActive }) => (isActive ? 'link active' : 'link')}
                                             >
-                                                Profile
+                                                {isAdmin ? 'Admin' : 'Profile'}
                                             </NavLink>
                                         </li>
                                         <li>

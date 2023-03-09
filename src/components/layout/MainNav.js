@@ -4,9 +4,8 @@ import useLogOut from '../../hooks/useLogOut';
 import { LogInContext } from '../../contexts/LogInContext';
 
 const MainNav = () => {
-    const { isLoggedIn } = useContext(LogInContext);
+    const { isLoggedIn, isAdmin } = useContext(LogInContext);
     const { handleLogout } = useLogOut();
-
     return (
         <nav className="navbar bg-dark">
             <div className="navContainer container">
@@ -28,16 +27,18 @@ const MainNav = () => {
                     {isLoggedIn ? (
                         <>
                             <li>
-
                                 <NavLink
-                                    to="/profile"
+                                    to={
+                                        isAdmin ? 'Admin' :
+                                            "/profile"
+                                    }
+
                                     className={({ isActive }) => (isActive ? 'link active' : 'link')}
                                 >
-                                    Profile
+                                    {isAdmin ? 'Admin' : 'Profile'}
                                 </NavLink>
                             </li>
                             <li>
-
                                 <NavLink
                                     to="/schedule"
                                     className={({ isActive }) => (isActive ? 'link active' : 'link')}

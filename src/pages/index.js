@@ -5,4 +5,5 @@ import LogIn from './LogIn'
 import Profile from './Profile'
 import Schedule from './Schedule'
 import NotFound from './NotFound'
-export { Home, About, SignUp, LogIn, Profile, Schedule, NotFound };
+import Admin from './Admin'
+export { Home, About, SignUp, LogIn, Profile, Schedule, NotFound, Admin };
