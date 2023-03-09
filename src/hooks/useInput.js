@@ -46,6 +46,7 @@ const useInput = () => {
                 logIn();
                 console.log(user);
                 localStorage.setItem('userToken', user.id);
+                localStorage.setItem('name', user.name);
                 user.isLoggedIn = true;
                 await updateUser(user);
                 navigate(user.email === 'admin@mail.com' ? '/admin' : '/profile');
@@ -91,6 +92,7 @@ const useInput = () => {
                 schedules: [],
                 isLoggedIn: false,
             });
+
             console.log(response.data);
             navigate('/logIn');
         } catch (error) {
