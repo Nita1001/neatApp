@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
+import uniqid from 'uniqid'
 import { getUsers } from '../api/userServices';
 import { SelectedDateContext } from '../contexts/SelectedDateContext';
 import { TIME_SLOTS } from '../utils/constants';
@@ -39,7 +40,12 @@ const useMeetingHoursList = () => {
     }, [selectedDate, selectedTime]);
 
     const handleSelectedTime = (hour) => {
-        setSelectedTime({ date: selectedDate, time: hour });
+        setSelectedTime({
+            date: selectedDate,
+            time: hour,
+            id: uniqid(),
+            status: 'incomplete'
+        });
     }
 
     const handleSetUpMeeting = async () => {
