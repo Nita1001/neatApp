@@ -64,6 +64,12 @@ body {
     color: var(--dark-gray);
     background-color: var(--white);
     font-family: "Roboto", "Arimo", sans-serif;
+    /* background-image: url("./assets/images/abstract_pastel_low_poly_design_2809.jpg"); */
+    /* background-image: url("./assets/images/SL_042620.jpg"); */
+    background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
+    /* background-image: url("./assets/images/rm373batch2-08.jpg"); */
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
 }
 
 a {
@@ -332,6 +338,7 @@ span {
 .card {
     margin: 1rem 0;
     padding: 1.6rem;
+    margin-top: 4rem;
     min-width: 6rem;
     border-radius: 0.5rem;
 }
@@ -994,17 +1001,21 @@ input[type="submit"]:disabled {
 /* Available Hours List */
 
 .availableHoursContainer {
+    color: white;
+    background-color: rgba(17, 17, 17, 0.85);
+    border-radius: 2rem;
     margin: 0 auto;
-    padding-top: 4rem;
+    margin-top: 3rem;
 }
 .availableHoursContainer ul {
     margin: 0 auto;
     width: fit-content;
+    padding-bottom: 1rem;
 }
 
 .availableHoursContainer h3 {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
 .activeHour {
@@ -1031,6 +1042,7 @@ input[type="submit"]:disabled {
     width: 10rem;
     color: white;
     margin-top: 1rem;
+    margin-bottom: 3rem;
     border: 1px solid;
     border-radius: 1rem;
     background-color: var(--dark-color);
@@ -1041,6 +1053,7 @@ input[type="submit"]:disabled {
     width: 11rem;
     color: white;
     margin-top: 1rem;
+    margin-bottom: 2rem;
     border: 1px solid;
     border-radius: 1rem;
     background-color: var(--danger-color);
