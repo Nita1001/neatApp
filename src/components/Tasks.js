@@ -18,6 +18,7 @@ const Tasks = () => {
                                 id='checkbox'
                                 name={`checkbox[${task.id}]`}
                                 type='checkbox'
+                                checked={task.status === 'complete'}
                                 handleNewInput={() => handleChecked(task.id)}
                             />
                             <Task isChecked={task.status === 'complete'} task={task} />

@@ -1,5 +1,4 @@
-import { useContext, useReducer, useCallback, createContext, useState } from 'react'
-import uniqid from 'uniqid'
+import { useContext, useReducer, createContext, useState } from 'react'
 import { getUsersSchedule, updateUsersData, getUserById } from '../api/userServices'
 import tasksReducer from '../reducers/tasksReducer';
 import { TASKS_ACTIONS } from '../actions/tasksActions'
@@ -8,33 +7,25 @@ import { LogInContext } from './LogInContext';
 export const TasksContext = createContext(null);
 
 const TasksContextProvider = ({ children }) => {
-
-    const { usersId } = useContext(LogInContext);
-    const [showScheduled, setShowScheduled] = useState(false);
     const initialState = {
         tasks: [],
     };
     const [state, dispatch] = useReducer(tasksReducer, initialState);
+
+    const [showScheduled, setShowScheduled] = useState(false);
+
+    const { usersId } = useContext(LogInContext);
+
     const getTasks = async (usersId) => {
         try {
             const schedules = await getUsersSchedule(usersId);
             if (schedules) {
-                const tasks = schedules.map((meeting) => createTask(meeting.date, meeting.time));
-                dispatch({ type: TASKS_ACTIONS.SET_TASKS, payload: tasks })
+                dispatch({ type: TASKS_ACTIONS.SET_TASKS, payload: schedules })
             }
         } catch (error) {
             console.error(error);
         }
     }
-
-    const createTask = useCallback((date, time) => {
-        return {
-            date,
-            time,
-            id: uniqid(),
-            status: 'incomplete'
-        }
-    }, []);
 
     const deleteMeetingFromAPI = async (updatedSchedule) => {
         try {
@@ -86,7 +77,6 @@ const TasksContextProvider = ({ children }) => {
     return (
         <TasksContext.Provider
             value={{
-                createTask,
                 deleteTask,
                 tasks: state.tasks,
                 getTasks,
