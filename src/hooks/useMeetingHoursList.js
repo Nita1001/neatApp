@@ -54,7 +54,6 @@ const useMeetingHoursList = () => {
             if (user) {
                 const found = user.schedules.find((scheduled) => scheduled.date === selectedDate)
                 if (found) {
-                    console.log('CANT!', found);
                     return setAlreadyBooked(true);;
                 } else {
                     const updatedSchedules = [...user.schedules, selectedTime];
