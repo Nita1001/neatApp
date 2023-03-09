@@ -67,7 +67,6 @@ body {
 }
 
 .profile,
-.schedule,
 .admin {
     height: 91vh;
 }
@@ -208,7 +207,6 @@ span {
     height: auto;
     margin: 0 auto;
     max-width: 100%;
-    overflow: hidden;
     padding: 0 3.2rem;
 }
 
@@ -850,6 +848,7 @@ input[type="submit"]:disabled {
 
 .calendarsGridContainer {
     width: 100%;
+    overflow: scroll !important;
 }
 
 /* OTHER */
