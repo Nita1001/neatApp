@@ -106,6 +106,8 @@ body {
 @import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
 .hexagonsContainer {
+    position: relative;
+    left: 18rem;
     width: 100%;
     height: 100%;
     background: #cfd8dc;
@@ -534,15 +536,13 @@ span {
     margin: 3rem 0;
 }
 /* Flex container */
-.flex-Container {
+/* .flex-Container {
     position: relative;
-    margin-left: 28rem;
-    display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
     justify-content: center;
-}
+} */
 /* Grid */
 .gridContainer {
     width: 100%;
@@ -1368,6 +1368,10 @@ input[type="submit"]:disabled {
     }
     form {
         min-width: 18rem;
+    }
+
+    .hexagonsContainer {
+        left: 11rem;
     }
 
     .hexagon__content {

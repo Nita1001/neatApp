@@ -1,10 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import HexagonGrid from '../components/hexagons';
+import HexagonsGenerator from '../components/HexagonsGenerator';
 
 const Profile = () => {
     const usersName = localStorage.getItem('name');
-
 
     return (
         <>
@@ -19,7 +18,7 @@ const Profile = () => {
                 </section>
                 <div className='flex-Container'>
                     <div className='homeCard'>
-                        <HexagonGrid></HexagonGrid>
+                        <HexagonsGenerator></HexagonsGenerator>
                     </div>
                 </div>
             </div>

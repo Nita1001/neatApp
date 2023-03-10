@@ -1,39 +1,46 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import useViewport from '../hooks/useViewport'
+import hexagonReducer from '../reducers/hexagonReducer'
+import { hexagonActions } from '../actions/hexagonActions';
+
+const initialState = {
+    shiftX: 0,
+    shiftY: 0,
+    padding: 0,
+};
 
 const useHexagon = () => {
+
+    const [state, dispatch] = useReducer(hexagonReducer, initialState);
 
     const { width } = useViewport();
     const breakpoint = 1200;
 
-    const [shiftX, setShiftX] = useState(60);
-    const [shiftY, setShiftY] = useState(90);
-    const [padding, setPadding] = useState(5);
-
     useEffect(() => {
         if (width < breakpoint) {
-            setShiftX(30);
-            setShiftY(44);
-            setPadding(5);
+            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 30 });
+            dispatch({ type: hexagonActions.SET_SHIFTY, payload: 44 });
+            dispatch({ type: hexagonActions.SET_PADDING, payload: 5 });
+        } else {
+            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 60 });
+            dispatch({ type: hexagonActions.SET_SHIFTY, payload: 90 });
+            dispatch({ type: hexagonActions.SET_PADDING, payload: 5 });
         }
-
-
     }, [width]);
 
     const calculatePosition = (x, y) => {
         return {
             position: 'absolute',
-            left: `${x * (shiftX + padding)}px`,
-            top: `${y * (shiftY + padding)}px`,
+            left: `${x * (state.shiftX + state.padding)}px`,
+            top: `${y * (state.shiftY + state.padding)}px`,
         };
     };
 
     return {
-        shiftX,
-        shiftY,
-        padding,
+        shiftX: state.shiftX,
+        shiftY: state.shiftY,
+        padding: state.padding,
         calculatePosition
     }
 }
-
 export default useHexagon
