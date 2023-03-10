@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
 
 /* Global Styles */
@@ -68,7 +69,7 @@ body {
 
 .profile,
 .admin {
-    height: 91vh;
+    height: 100vh;
 }
 
 /* background-image: url("./assets/images/10837496_19449741.jpg"); */
@@ -86,7 +87,6 @@ body {
     background-size: cover;
 }
 .profileHeaderBackground {
-    width: 100vw;
     height: 40vh;
     background-color: rgba(255, 255, 255, 0.282);
 }
@@ -98,12 +98,11 @@ body {
     padding-top: 5rem;
     padding-left: 4rem;
     margin: 0;
+    width: 97vw;
 }
 .profileHeader h2 {
     padding-bottom: 1rem;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
 .hexagonsContainer {
     position: relative;
@@ -840,7 +839,6 @@ input[type="submit"]:disabled {
 
 .calendarsGridContainer {
     width: 100%;
-    overflow: scroll !important;
 }
 
 /* OTHER */
