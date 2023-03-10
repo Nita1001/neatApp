@@ -194,6 +194,7 @@ body {
 
 .hexagons-title {
     position: absolute;
+    font-size: small;
     bottom: 2.2rem;
 }
 
@@ -1429,6 +1430,11 @@ input[type="submit"]:disabled {
         top: 1.2rem;
         left: 1.4rem;
     }
+    .hexagons-title {
+        position: absolute;
+        font-size: smaller;
+        bottom: 1.3rem;
+    }
 }
 
 /* Tablet and phone */
@@ -1455,6 +1461,9 @@ input[type="submit"]:disabled {
         height: 5rem;
         width: 15rem;
     }
+    .hexagonIcon {
+        left: 1.7rem;
+    }
 }
 
 @media (max-width: 500px) {
@@ -1474,9 +1483,5 @@ input[type="submit"]:disabled {
     .homeCard0 h1 {
         font-family: "Lucida Sans Regular";
         font-size: 2.4rem;
-    }
-    .hexagonIcon {
-        top: 1.2rem;
-        left: 1.8rem;
     }
 }
