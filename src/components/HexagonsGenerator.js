@@ -4,7 +4,7 @@ import crown from '../assets/icons/crown-colored.png'
 import rocket from '../assets/icons/rocket-front-gradient.png'
 import fire from '../assets/icons/fire-front-gradient.png'
 
-import background from '../assets/images/hexagonBackground.jfif'
+import background from '../assets/images/hexagonBackground.png'
 
 const images = [
   crown,
