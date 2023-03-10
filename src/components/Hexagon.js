@@ -26,7 +26,7 @@ const Hexagon = ({ x, y, imageSrc, title, isIcon }) => {
         >
             <div className="hexagon__content">
                 <img className={isIcon ? hexHeightWidth === '32px' ? 'hexagonIcon-32' : 'hexagonIcon-64' : 'hexagon__background'} style={isIcon ? { width: hexHeightWidth, height: hexHeightWidth } : null} src={imageSrc} alt="" />
-                {title}
+                <div className='hexagons-title'>{title}</div>
             </div>
         </div>
     );
