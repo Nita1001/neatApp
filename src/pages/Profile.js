@@ -13,7 +13,8 @@ const Profile = () => {
             <div className='profile'>
                 <section className='profileHeader profileHeaderBackground'>
                     <h2>Hello {usersName}</h2>
-                    <p>This is your profile page. You can see the progress you've made</p>
+                    <p>This is your profile page.</p>
+                    <p>See the progress you've made</p>
                     <p>and manage your profile or assigned tasks</p>
                 </section>
                 <div className='flex-Container'>

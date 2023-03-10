@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import useViewport from '../hooks/useViewport'
 import hexagonReducer from '../reducers/hexagonReducer'
 import { hexagonActions } from '../actions/hexagonActions';
@@ -12,17 +12,21 @@ const initialState = {
 const useHexagon = () => {
 
     const [state, dispatch] = useReducer(hexagonReducer, initialState);
+    const [hexHeightWidth, setHexHeightWidth] = useState('');
+
 
     const { width } = useViewport();
     const breakpoint = 1200;
 
     useEffect(() => {
         if (width < breakpoint) {
-            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 30 });
+            setHexHeightWidth('32px');
+            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 26 });
             dispatch({ type: hexagonActions.SET_SHIFTY, payload: 44 });
             dispatch({ type: hexagonActions.SET_PADDING, payload: 5 });
         } else {
-            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 60 });
+            setHexHeightWidth('64px');
+            dispatch({ type: hexagonActions.SET_SHIFTX, payload: 58 });
             dispatch({ type: hexagonActions.SET_SHIFTY, payload: 90 });
             dispatch({ type: hexagonActions.SET_PADDING, payload: 5 });
         }
@@ -40,7 +44,8 @@ const useHexagon = () => {
         shiftX: state.shiftX,
         shiftY: state.shiftY,
         padding: state.padding,
-        calculatePosition
+        calculatePosition,
+        hexHeightWidth
     }
 }
 export default useHexagon

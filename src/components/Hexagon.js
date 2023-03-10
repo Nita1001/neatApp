@@ -1,13 +1,14 @@
 import React from 'react';
 import useHexagon from '../hooks/useHexagon';
 
-const Hexagon = ({ x, y, imageSrc, title }) => {
+const Hexagon = ({ x, y, imageSrc, title, isIcon }) => {
 
     const {
         shiftX,
         shiftY,
         padding,
-        calculatePosition
+        calculatePosition,
+        hexHeightWidth
     } = useHexagon();
 
     calculatePosition();
@@ -24,7 +25,7 @@ const Hexagon = ({ x, y, imageSrc, title }) => {
             }}
         >
             <div className="hexagon__content">
-                <img className="hexagon__background" src={imageSrc} alt="" />
+                <img className={isIcon ? hexHeightWidth === '32px' ? 'hexagonIcon-32' : 'hexagonIcon-64' : 'hexagon__background'} style={isIcon ? { width: hexHeightWidth, height: hexHeightWidth } : null} src={imageSrc} alt="" />
                 {title}
             </div>
         </div>
