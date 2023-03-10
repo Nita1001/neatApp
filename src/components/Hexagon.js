@@ -1,26 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import useViewport from '../hooks/useViewport'
+import React from 'react';
+import useHexagon from '../hooks/useHexagon';
 
 const Hexagon = ({ x, y, imageSrc, title }) => {
 
-    const allHex = document.querySelectorAll('.hexagon');
-    const { width } = useViewport();
-    const breakpoint = 1200;
-    const [shiftX, setShiftX] = useState(60);
-    const [shiftY, setShiftY] = useState(90);
-    const [padding, setPadding] = useState(5);
+    const {
+        shiftX,
+        shiftY,
+        padding,
+        calculatePosition
+    } = useHexagon();
 
-    useEffect(() => {
-        if (width < breakpoint) {
-            setShiftX(30);
-            setShiftY(44);
-            setPadding(5);
-        }
-        allHex.forEach((el) => {
-            el.style.left = (parseInt(el.dataset.x) * (shiftX + padding)) + 'px';
-            el.style.top = (parseInt(el.dataset.y) * (shiftY + padding)) + 'px';
-        });
-    }, [width, shiftX, shiftY, padding, allHex]);
+    calculatePosition();
 
     return (
         <div
