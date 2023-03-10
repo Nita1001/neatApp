@@ -73,7 +73,13 @@ body {
 }
 
 /* background-image: url("./assets/images/10837496_19449741.jpg"); */
-
+.home {
+    color: white;
+    background-color: rgb(0, 32, 45);
+}
+.homeCard1 img {
+    border-radius: 10rem;
+}
 .scheduleBackground {
     background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
     background-repeat: no-repeat;
@@ -87,7 +93,7 @@ body {
     background-size: cover;
 }
 .profileHeaderBackground {
-    height: 40vh;
+    height: 30vh;
     background-color: rgba(255, 255, 255, 0.282);
 }
 .profileHeader {
@@ -200,7 +206,6 @@ span {
     height: auto;
     margin: 0 auto;
     max-width: 100%;
-    padding: 0 3.2rem;
 }
 
 /* Burger Menu */
@@ -472,6 +477,20 @@ span {
     min-width: 6rem;
     border-radius: 0.5rem;
     width: fit-content;
+}
+.homeCard0 {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    margin-left: 4rem;
+    margin-top: 14rem;
+}
+.homeCard0 h1 {
+    font-family: "Lucida Sans Regular";
+    font-size: 3.4rem;
+}
+.homeCard2 {
+    margin-left: 4rem;
 }
 
 /* List */
@@ -1418,5 +1437,9 @@ input[type="submit"]:disabled {
         flex-direction: row;
         width: fit-content;
         height: 50%;
+    }
+    .homeCard0 h1 {
+        font-family: "Lucida Sans Regular";
+        font-size: 2.4rem;
     }
 }
