@@ -159,17 +159,8 @@ body {
     transition: filter 0.5s ease-out, transform 0.5s ease-out;
     z-index: -1;
 }
-.hexagonIcon-32 {
-    position: absolute;
-    top: 1.2rem;
-    left: 1.4rem;
-    width: 100%;
-    height: auto;
-    filter: saturate(30%);
-    transition: filter 0.5s ease-out, transform 0.5s ease-out;
-    z-index: -1;
-}
-.hexagonIcon-64 {
+
+.hexagonIcon {
     position: absolute;
     top: 1.3rem;
     left: 2.8rem;
@@ -180,8 +171,23 @@ body {
     z-index: -1;
 }
 .hexagon__content:hover .hexagon__background,
-.hexagon__content:hover .hexagonIcon-32,
-.hexagon__content:hover .hexagonIcon-64 {
+.hexagon__content:hover .hexagonIcon {
+    transform: scale(1.2);
+    filter: saturate(100%);
+}
+
+.hexagonIcon {
+    position: absolute;
+    top: 1.3rem;
+    left: 2.8rem;
+    width: 100%;
+    height: auto;
+    filter: saturate(30%);
+    transition: filter 0.5s ease-out, transform 0.5s ease-out;
+    z-index: -1;
+}
+.hexagon__content:hover .hexagon__background,
+.hexagon__content:hover {
     transform: scale(1.2);
     filter: saturate(100%);
 }
@@ -1419,6 +1425,10 @@ input[type="submit"]:disabled {
         height: 60px;
         font-size: 10px;
     }
+    .hexagonIcon {
+        top: 1.2rem;
+        left: 1.4rem;
+    }
 }
 
 /* Tablet and phone */
@@ -1464,5 +1474,9 @@ input[type="submit"]:disabled {
     .homeCard0 h1 {
         font-family: "Lucida Sans Regular";
         font-size: 2.4rem;
+    }
+    .hexagonIcon {
+        top: 1.2rem;
+        left: 1.8rem;
     }
 }
