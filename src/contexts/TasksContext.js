@@ -11,9 +11,7 @@ const TasksContextProvider = ({ children }) => {
         tasks: [],
     };
     const [state, dispatch] = useReducer(tasksReducer, initialState);
-
     const [showScheduled, setShowScheduled] = useState(false);
-
     const { usersId } = useContext(LogInContext);
 
     const getTasks = async (usersId) => {
@@ -29,8 +27,7 @@ const TasksContextProvider = ({ children }) => {
 
     const deleteMeetingFromAPI = async (updatedSchedule) => {
         try {
-            const id = localStorage.getItem('userToken');
-            const user = await getUserById(id);
+            const user = await getUserById(usersId);
             if (user) {
                 await updateUsersData(usersId, { schedules: updatedSchedule });
             }
