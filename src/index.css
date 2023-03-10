@@ -1433,7 +1433,7 @@ input[type="submit"]:disabled {
     .hexagons-title {
         position: absolute;
         font-size: smaller;
-        bottom: 1.3rem;
+        bottom: 1.5rem;
     }
 }
 
