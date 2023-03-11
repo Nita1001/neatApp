@@ -42,12 +42,14 @@ const MainNav = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink
-                                    to="/schedule"
-                                    className={({ isActive }) => (isActive ? 'link active' : 'link')}
-                                >
-                                    Schedule
-                                </NavLink>
+                                {isAdmin ? null :
+                                    <NavLink
+                                        to="/schedule"
+                                        className={({ isActive }) => (isActive ? 'link active' : 'link')}
+                                    >
+                                        Schedule
+                                    </NavLink>
+                                }
                             </li>
                             <button className="btnLogOut" onClick={handleLogout}>
                                 Log Out
