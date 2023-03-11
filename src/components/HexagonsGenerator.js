@@ -9,15 +9,26 @@ import calendar from '../assets/icons/calender-front-gradient.png'
 
 import background from '../assets/images/hexagonBackground.png'
 
-const images = [
-  crown,
-  rocket,
-  fire,
-  star,
-  target,
-  calendar,
-];
-const titles = ['crown', 'rocket', 'fire', 'star', 'target', 'calendar']
+
+const generateIcon = (badge) => {
+  switch (badge) {
+    case 'crown':
+      return crown;
+    case 'rocket':
+      return rocket;
+    case 'fire':
+      return fire;
+    case 'star':
+      return star;
+    case 'target':
+      return target;
+    case 'calendar':
+      return calendar;
+    default:
+      return;
+  }
+}
+
 const badges = ['crown', 'rocket', 'fire', 'star', 'target', 'calendar']
 
 const HexagonsGenerator = () => {
@@ -27,6 +38,7 @@ const HexagonsGenerator = () => {
     <>
       {
         badges.map((badge, index) => {
+          const generatedIcon = generateIcon(badge);
           const pattern = [0, 1, 1, 0, 2];
           const even = (index % 2 === 0);
           const odd = (index % 2 !== 0);
@@ -36,8 +48,8 @@ const HexagonsGenerator = () => {
           return (
 
             <div className='hexagonsContainer' key={badge}>
-              <Hexagon x={x} y={y} imageSrc={background} title={titles[index]} />
-              <Hexagon x={x} y={y} imageSrc={images[index]} isIcon={isIcon} />
+              <Hexagon x={x} y={y} imageSrc={background} title={badges[index]} />
+              <Hexagon x={x} y={y} imageSrc={generatedIcon} isIcon={isIcon} />
 
             </div>
           )
