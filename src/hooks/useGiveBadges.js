@@ -13,6 +13,8 @@ const useGiveBadges = () => {
         if (giveBadge) {
             let newBadge;
             let badgeExists;
+
+            ///// too many requests! should change later - create userReducer ?
             switch (giveBadge) {
                 case 1:
                     newBadge = { icon: 'star', title: 'first meeting' };
@@ -37,8 +39,7 @@ const useGiveBadges = () => {
                     }
                     break;
                 default:
-                    console.log('something went wrong');
-
+                    break;
             }
 
 
