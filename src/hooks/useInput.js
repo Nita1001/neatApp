@@ -8,10 +8,12 @@ import { logInUser, updateUser } from '../api/userServices'
 
 import { isPhoneValid } from '../utils/validatePhone'
 import { createUser } from '../api/userServices'
+import useGiveBadges from '../hooks/useGiveBadges'
 
 const useInput = () => {
     const navigate = useNavigate();
     const { logIn } = useContext(LogInContext);
+    const { setCompletedTasksBadge } = useGiveBadges();
 
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -48,6 +50,7 @@ const useInput = () => {
                 user.isLoggedIn = true;
                 await updateUser(user);
                 navigate(user.email === 'admin@mail.com' ? '/admin' : '/profile');
+                setCompletedTasksBadge();
             } else {
                 setLoginError(LOGIN_ERROR_MESSAGE);
                 console.log(loginError);

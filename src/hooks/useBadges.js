@@ -25,9 +25,11 @@ const useBadges = () => {
             }
         }
         fetchBadges()
-    }, [usersId])
+    }, [usersId,])
 
-    return state
+    return {
+        badges: state.badges,
+    };
 }
 
 export default useBadges
