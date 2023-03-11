@@ -60,6 +60,7 @@ html {
 
 body {
     box-sizing: border-box;
+    height: 100vh;
     line-height: 1.6;
     font-size: 1.6rem;
     color: var(--dark-gray);
@@ -72,31 +73,25 @@ body {
     height: 100vh;
 }
 
-/* background-image: url("./assets/images/10837496_19449741.jpg"); */
-.home {
-    color: white;
-    background-color: rgb(0, 32, 45);
-    height: 100vh;
-}
-.homeCard1 img {
-    border-radius: 10rem;
-}
+/* Backgrounds */
+
 .scheduleBackground {
-    background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
+    height: 100vh;
     background-repeat: no-repeat;
-    background-size: cover;
     background-blend-mode: darken;
+    background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
 }
 .profileBackground {
-    background-image: url("./assets/images/background101.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("./assets/images/background101.jpg");
 }
 .profileHeaderBackground {
     height: 30vh;
     background-color: rgba(255, 255, 255, 0.282);
 }
+
 .profileHeader {
     display: flex;
     flex-direction: column;
@@ -142,8 +137,8 @@ body {
         0% 25%
     );
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    box-shadow: 0 0 5px 0 #f00;
-    font-family: "Staatliches", cursive;
+    box-shadow: 0 0 5px 0 rgb(7, 6, 6);
+    font-family: "Staatliches";
     color: #fff;
     font-size: 20px;
     text-shadow: 0 0 1px #263238, 0 0 1px #263238, 0 0 1px #263238;
@@ -240,7 +235,6 @@ span {
 }
 
 /* Burger Menu */
-
 .menu-wrap {
     position: fixed;
     top: 0;
@@ -272,9 +266,7 @@ span {
     justify-content: center;
     background: var(--dark-color);
 }
-
 /* Hamburger Line */
-
 .menu-wrap .burger > div {
     position: relative;
     flex: none;
@@ -286,7 +278,6 @@ span {
     justify-content: center;
     transition: all 0.4s ease;
 }
-
 /* burger Lines - Top & Bottom */
 .menu-wrap .burger > div::before,
 .menu-wrap .burger > div::after {
@@ -302,24 +293,20 @@ span {
 .menu-wrap .burger > div::after {
     top: 10px;
 }
-
 /* Toggle Animation */
 .menu-wrap .toggle:checked + .burger > div {
     transform: rotate(135deg);
 }
-
 /* Turns Lines Into X */
 .menu-wrap .toggle:checked + .burger > div:before,
 .menu-wrap .toggle:checked + .burger > div:after {
     top: 0;
     transform: rotate(90deg);
 }
-
 /* Rotate On Hover When Checked */
 .menu-wrap .toggle:checked:hover + .burger > div {
     transform: rotate(225deg);
 }
-
 /* Show Menu */
 .menu-wrap .toggle:checked ~ .menu {
     visibility: visible;
@@ -328,12 +315,10 @@ span {
     transform: scale(1);
     transition-duration: 0.75s;
 }
-
 .menu-wrap .toggle:checked ~ .menu > div > div {
     opacity: 1;
     transition: opacity 0.4s ease 0.4s;
 }
-
 .menu-wrap .menu {
     position: fixed;
     top: 0;
@@ -346,12 +331,10 @@ span {
     align-items: center;
     justify-content: center;
 }
-
 .burgersUlContainer {
     display: flex;
     flex-direction: column;
 }
-
 .menu-wrap .menu > div {
     width: 100%;
     height: 100%;
@@ -363,7 +346,6 @@ span {
     transition: all 0.4s ease;
     background: rgba(17, 17, 17, 0.85);
 }
-
 .menu-wrap .menu > div > div {
     opacity: 0;
     max-width: 90vw;
@@ -371,20 +353,17 @@ span {
     text-align: center;
     transition: opacity 0.4s ease;
 }
-
 .menu-wrap .menu > div > div > ul > li {
     color: #fff;
     padding: 1rem;
     font-size: 4rem;
     list-style: none;
 }
-
 .menu-wrap .menu > div > div > ul > li > a {
     color: inherit;
     text-decoration: none;
     transition: color 0.4s ease;
 }
-
 .menu-wrap .menu > div > div > ul > li > a:hover {
     color: teal;
 }
@@ -468,9 +447,6 @@ span {
     justify-content: center;
 }
 
-.pagesContainer {
-}
-
 /* Schedules Page Cards */
 .card {
     margin: 1rem 0;
@@ -496,9 +472,13 @@ span {
     width: fit-content;
 }
 /* Home Page */
-/* .home {
+.home {
+    width: 80%;
+    font-family: Verdana, Tahoma, sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(232, 233, 237);
+}
 
-} */
 /* Home Cards */
 .homeCard {
     margin: 1rem 0;
@@ -511,17 +491,49 @@ span {
 }
 .homeCard0 {
     display: flex;
-    align-items: baseline;
+    margin-top: 8rem;
+    align-items: center;
     flex-direction: column;
-    margin-left: 4rem;
-    margin-top: 14rem;
 }
-.homeCard0 h1 {
-    font-family: "Lucida Sans Regular";
-    font-size: 3.4rem;
+.homeCard0 .headers h1 {
+    font-size: 2.4rem;
+}
+.homeCard0 .headers {
+    display: flex;
+    margin-left: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.homeCard0 button {
+    width: 14rem;
+    height: 3rem;
+    margin-top: 1rem;
+    color: white;
+    border-radius: 0.4rem;
+    background-color: rgba(1, 33, 46, 0.817);
+}
+.homeCard0 button:hover {
+    background-color: rgba(1, 33, 46, 0.979);
+}
+.homeCard0 a {
+    color: white;
+}
+.homeCard1 {
+    margin: 0 auto;
+}
+.homeCard1 img {
+    margin-top: 8rem;
+    border-radius: 10rem;
 }
 .homeCard2 {
     margin-left: 4rem;
+}
+
+/* Admins Page */
+.adminsPage {
 }
 
 /* List */
@@ -584,22 +596,14 @@ span {
 .my-3 {
     margin: 3rem 0;
 }
-/* Flex container */
-/* .flex-Container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-} */
+
 /* Grid */
 .gridContainer {
     width: 100%;
 }
 .grid-2 {
     display: grid;
-    align-items: baseline;
-    grid-gap: 1rem;
+    align-items: flex-start;
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -1352,7 +1356,6 @@ input[type="submit"]:disabled {
         font-size: 1.6rem;
     }
 
-    .grid-2,
     .grid-4 {
         grid-template-columns: 1fr;
     }
@@ -1436,6 +1439,9 @@ input[type="submit"]:disabled {
         font-size: smaller;
         bottom: 1.5rem;
     }
+    .homeCard0 .headers h1 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Tablet and phone */
@@ -1454,7 +1460,9 @@ input[type="submit"]:disabled {
         padding-top: 3rem;
         grid-gap: 0;
     }
-
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
     .hoursList li {
         font-size: 2.2rem;
     }
@@ -1467,6 +1475,12 @@ input[type="submit"]:disabled {
     }
     .hexagonsContainer {
         left: 37rem;
+    }
+    .homeCard0 {
+        margin-top: 12rem;
+    }
+    .homeCard1 img {
+        margin-top: 0;
     }
 }
 
@@ -1484,11 +1498,13 @@ input[type="submit"]:disabled {
         width: fit-content;
         height: 50%;
     }
-    .homeCard0 h1 {
-        font-family: "Lucida Sans Regular";
-        font-size: 2.4rem;
-    }
     .hexagonsContainer {
         left: 20rem;
+    }
+    .homeCard0 {
+        margin-left: 0;
+    }
+    .homeCard0 .headers h1 {
+        font-size: 1.3rem;
     }
 }
