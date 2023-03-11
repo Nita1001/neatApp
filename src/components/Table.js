@@ -23,7 +23,8 @@ const Table = () => {
                     <td>{closestSchedule ? closestSchedule.date : ''}</td>
                     <td>{closestSchedule ? closestSchedule.time : ''}</td>
                     <td>{user.email}</td>
-                    <td>{user.isLoggedIn}</td>
+                    <td>{user.phone}</td>
+                    <td>{user.isLoggedIn ? 'Yes' : 'No'}</td>
                 </tr>
             );
         });
@@ -42,7 +43,8 @@ const Table = () => {
                         <th>Date</th>
                         <th>Time</th>
                         <th>Email</th>
-                        <th>Is LoggedIn</th>
+                        <th>Phone</th>
+                        <th>Logged In</th>
                     </tr>
                 </thead>
                 <tbody>
