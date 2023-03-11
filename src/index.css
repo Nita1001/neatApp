@@ -67,25 +67,32 @@ body {
     background-color: var(--white);
     font-family: "Roboto", "Arimo", sans-serif;
 }
-
+.calendarsGridContainer,
 .profile,
-.admin {
+.adminsPage {
     height: 100vh;
 }
 
 /* Backgrounds */
 
-.scheduleBackground {
+.adminBackground {
     height: 100vh;
+    background-image: url("./assets/images/SL_042620.jpg");
     background-repeat: no-repeat;
     background-blend-mode: darken;
+}
+
+.scheduleBackground {
+    height: 100vh;
     background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
 }
 .profileBackground {
     background-size: cover;
+    background-image: url("./assets/images/background101.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("./assets/images/background101.jpg");
 }
 .profileHeaderBackground {
     height: 30vh;
@@ -105,6 +112,7 @@ body {
 .profileHeader h2 {
     padding-bottom: 1rem;
 }
+
 /* HEXAGONS */
 .hexagonsContainer {
     position: relative;
@@ -471,6 +479,7 @@ span {
     border-radius: 0.5rem;
     width: fit-content;
 }
+
 /* Home Page */
 .home {
     width: 80%;
@@ -532,8 +541,8 @@ span {
 }
 
 /* Admins Page */
-.adminsPage {
-}
+
+/* Table */
 
 /* List */
 .list {
@@ -889,12 +898,6 @@ input[type="submit"]:disabled {
 }
 
 /* Calendar styles */
-
-.calendarsGridContainer {
-    width: 100%;
-}
-
-/* OTHER */
 
 .calendarContainer {
     display: flex;
