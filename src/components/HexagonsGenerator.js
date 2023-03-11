@@ -1,16 +1,20 @@
 import React from 'react'
 import useHexIcons from '../hooks/useHexIcons'
+import useBadges from '../hooks/useBadges'
 import Hexagon from "./Hexagon";
 import background from '../assets/images/hexagonBackground.png'
 
-const badges = ['crown', 'rocket', 'fire', 'star', 'target', 'calendar']
-
 const HexagonsGenerator = () => {
+
+  const {
+    badges
+  } = useBadges();
 
   const {
     generateIcon,
     isIcon,
   } = useHexIcons();
+
 
   return (
     <>
