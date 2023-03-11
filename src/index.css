@@ -476,7 +476,6 @@ span {
     width: 80%;
     font-family: Verdana, Tahoma, sans-serif;
     color: rgba(0, 0, 0, 0.8);
-    background-color: rgb(232, 233, 237);
 }
 
 /* Home Cards */
@@ -1501,10 +1500,17 @@ input[type="submit"]:disabled {
     .hexagonsContainer {
         left: 20rem;
     }
+
     .homeCard0 {
+        order: 2;
         margin-left: 0;
+        margin-top: 0;
     }
     .homeCard0 .headers h1 {
         font-size: 1.3rem;
+    }
+    .homeCard1 {
+        order: 1;
+        margin-top: 10rem;
     }
 }
