@@ -25,7 +25,7 @@ const useBadges = () => {
             }
         }
         fetchBadges()
-    }, [usersId,])
+    }, [usersId])
 
     return {
         badges: state.badges,

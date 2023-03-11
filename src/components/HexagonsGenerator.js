@@ -4,7 +4,6 @@ import Hexagon from "./Hexagon";
 import background from '../assets/images/hexagonBackground.png'
 import useBadges from '../hooks/useBadges';
 
-
 const HexagonsGenerator = () => {
 
   const { badges } = useBadges();
