@@ -43,21 +43,6 @@ const HexagonsGenerator = () => {
           )
         })
       }
-
-
-      {/* <Hexagon x={0} y={0} imageSrc={images[0]} title={titles[1]} />
-      <Hexagon x={0} y={0} imageSrc={images[1]} isIcon={isIcon} /> */}
-      {/* <Hexagon x={-1} y={1} imageSrc={images[0]} title={titles[0]} />
-      <Hexagon x={-1} y={1} imageSrc={images[2]} isIcon={isIcon} /> */}
-
-
-
-      {/* 
-      <Hexagon x={1} y={1} imageSrc={images[0]} title={titles[0]} />
-
-      <Hexagon x={-2} y={2} imageSrc={images[0]} title={titles[0]} />
-    <Hexagon x={0} y={2} imageSrc={images[0]} title={titles[0]} /> */}
-
     </>
   );
 }
