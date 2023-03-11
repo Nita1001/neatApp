@@ -82,7 +82,7 @@ const useInput = () => {
             return;
         }
         try {
-            const response = await createUser({
+            await createUser({
                 name,
                 phone,
                 email,
@@ -91,8 +91,6 @@ const useInput = () => {
                 badges: [{ icon: 'rocket', title: 'first lunch' }],
                 isLoggedIn: false,
             });
-
-            console.log(response.data);
             navigate('/logIn');
         } catch (error) {
             console.error(error);

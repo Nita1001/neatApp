@@ -44,7 +44,6 @@ const TasksContextProvider = ({ children }) => {
 
     const handleChecked = (id) => {
         const task = state.tasks.find(t => t.id === id);
-        console.log(task)
         const status = task.status === 'complete' ? 'incomplete' : 'complete';
         dispatch({
             type: TASKS_ACTIONS.TOGGLE_CHECKED,

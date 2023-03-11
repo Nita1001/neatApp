@@ -45,7 +45,6 @@ export const getUserById = async (userId) => {
 export const createSchedule = async (id, updatedData) => {
   try {
     const currentUser = await getUserById(id);
-    console.log('API current user', currentUser);
     return currentUser.data;
   } catch (error) {
     console.error(error);
@@ -66,7 +65,6 @@ export const getUsersSchedule = async (id) => {
 export const getUsersBadges = async (id) => {
   try {
     const user = await getUserById(id);
-    console.log('badges', user.badges)
     return user.badges;
   } catch (error) {
     console.error(error);

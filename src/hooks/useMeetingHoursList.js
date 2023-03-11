@@ -54,7 +54,7 @@ const useMeetingHoursList = () => {
             if (user) {
                 const found = user.schedules.find((scheduled) => scheduled.date === selectedDate)
                 if (found) {
-                    return setAlreadyBooked(true);;
+                    return setAlreadyBooked(true);
                 } else {
                     const updatedSchedules = [...user.schedules, selectedTime];
                     await updateUsersData(user.id, { schedules: updatedSchedules });

@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { useTaskGlobalContext } from '../contexts/TasksContext';
 import { LogInContext } from '../contexts/LogInContext';
 
-
 const useMySchedule = () => {
     const { showScheduled, setShowScheduled, getTasks } = useTaskGlobalContext();
     const { usersId } = useContext(LogInContext);
