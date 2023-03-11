@@ -29,7 +29,7 @@ const MainNav = () => {
                             <li>
                                 <NavLink
                                     to={
-                                        isAdmin ? 'Admin' :
+                                        isAdmin ? '/admin' :
                                             "/profile"
                                     }
 
