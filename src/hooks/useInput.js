@@ -12,7 +12,6 @@ import { createUser } from '../api/userServices'
 const useInput = () => {
     const navigate = useNavigate();
     const { logIn } = useContext(LogInContext);
-
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [phoneError, setPhoneError] = useState('');
@@ -47,7 +46,7 @@ const useInput = () => {
                 localStorage.setItem('name', user.name);
                 user.isLoggedIn = true;
                 await updateUser(user);
-                navigate(user.email === 'admin@mail.com' ? '/admin' : '/profile');
+                navigate(user.email === 'Admin@mail.com' ? '/admin' : '/profile');
             } else {
                 setLoginError(LOGIN_ERROR_MESSAGE);
                 console.log(loginError);

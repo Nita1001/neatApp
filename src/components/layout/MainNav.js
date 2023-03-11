@@ -35,7 +35,6 @@ const MainNav = () => {
                                         isAdmin ? '/admin' :
                                             "/profile"
                                     }
-
                                     className={({ isActive }) => (isActive ? 'link active' : 'link')}
                                 >
                                     {isAdmin ? 'Admin' : 'Profile'}

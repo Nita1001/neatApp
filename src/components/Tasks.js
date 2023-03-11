@@ -18,10 +18,10 @@ const Tasks = () => {
                                 id='checkbox'
                                 name={`checkbox[${task.id}]`}
                                 type='checkbox'
-                                checked={task.status === 'complete'}
+                                checked={task.status === 'completed'}
                                 handleNewInput={() => handleChecked(task.id)}
                             />
-                            <Task isChecked={task.status === 'complete'} task={task} />
+                            <Task isChecked={task.status === 'completed'} task={task} />
                             <Button
                                 className='trash'
                                 title='Delete'

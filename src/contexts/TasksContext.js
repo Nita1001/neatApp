@@ -44,7 +44,7 @@ const TasksContextProvider = ({ children }) => {
 
     const handleChecked = (id) => {
         const task = state.tasks.find(t => t.id === id);
-        const status = task.status === 'complete' ? 'incomplete' : 'complete';
+        const status = task.status === 'completed' ? 'incomplete' : 'completed';
         dispatch({
             type: TASKS_ACTIONS.TOGGLE_CHECKED,
             payload: { id, status },
@@ -64,7 +64,7 @@ const TasksContextProvider = ({ children }) => {
     }
 
     const getCheckedTasks = (tasks) => {
-        const checked = tasks.filter((task) => task.state === 'complete');
+        const checked = tasks.filter((task) => task.state === 'completed');
         return checked;
     };
 

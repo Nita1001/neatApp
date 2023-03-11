@@ -8,7 +8,7 @@ const useGiveBadges = () => {
     const setCompletedTasksBadge = async () => {
         const user = await getUserById(usersId);
         const checkTasks = user.schedules;
-        const completedTasks = checkTasks.filter((task) => task.status === 'complete');
+        const completedTasks = checkTasks.filter((task) => task.status === 'completed');
         const giveBadge = completedTasks.length;
         if (giveBadge) {
             let newBadge;
