@@ -37,15 +37,18 @@ const MobileMainNav = () => {
                     <div>
                         <div>
                             <ul>
-                                <li>
+                                <li> {isAdmin ? null :
                                     <NavLink to="/" className={({ isActive }) => (isActive ? 'link active' : 'link')}>
                                         Home
                                     </NavLink>
+                                }
                                 </li>
                                 <li>
-                                    <NavLink to="/about" className={({ isActive }) => (isActive ? 'link active' : 'link')}>
-                                        About
-                                    </NavLink>
+                                    {isAdmin ? null :
+                                        <NavLink to="/about" className={({ isActive }) => (isActive ? 'link active' : 'link')}>
+                                            About
+                                        </NavLink>
+                                    }
                                 </li>
                                 {isLoggedIn ? (
                                     <>
