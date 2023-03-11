@@ -7,23 +7,41 @@ const useGiveBadges = () => {
 
     const setCompletedTasksBadge = async () => {
         const user = await getUserById(usersId);
-        console.log(user)
         const checkTasks = user.schedules;
-        console.log(user.schedules);
         const completedTasks = checkTasks.filter((task) => task.status === 'complete');
-        const giveBadge = completedTasks.length >= 1;
+        const giveBadge = completedTasks.length;
         if (giveBadge) {
-            const newBadge = { icon: 'target', title: 'first meeting' };
-            const badgeExists = user.badges && user.badges.some(
-                (badge) => badge.icon === newBadge.icon && badge.title === newBadge.title);
-            if (!badgeExists) {
-                const updatedBadges = user.badges ? [...user.badges, newBadge] : [newBadge];
-                const updatedUser = { ...user, badges: updatedBadges };
-                await updateUsersData(usersId, updatedUser);
-                console.log('Received a new badge, check your profile');
-            } else {
-                console.log('You already have this badge!');
+            let newBadge;
+            let badgeExists;
+            switch (giveBadge) {
+                case 1:
+                    newBadge = { icon: 'star', title: 'first meeting' };
+                    badgeExists = user.badges && user.badges.some(
+                        (badge) => badge.icon === newBadge.icon && badge.title === newBadge.title);
+                    if (!badgeExists) {
+                        const updatedBadges = user.badges ? [...user.badges, newBadge] : [newBadge];
+                        const updatedUser = { ...user, badges: updatedBadges };
+                        await updateUsersData(usersId, updatedUser);
+                        console.log('Received a new badge, check your profile');
+                    }
+                    break;
+                case 5:
+                    newBadge = { icon: 'target', title: '5 meetings' };
+                    badgeExists = user.badges && user.badges.some(
+                        (badge) => badge.icon === newBadge.icon && badge.title === newBadge.title);
+                    if (!badgeExists) {
+                        const updatedBadges = user.badges ? [...user.badges, newBadge] : [newBadge];
+                        const updatedUser = { ...user, badges: updatedBadges };
+                        await updateUsersData(usersId, updatedUser);
+                        console.log('Received a new badge, check your profile');
+                    }
+                    break;
+                default:
+                    console.log('something went wrong');
+
             }
+
+
         }
     };
     return {
