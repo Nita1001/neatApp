@@ -1,60 +1,55 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles/Table.style.css'
-import { getUsers } from '../api/userServices';
-
-const data = [
-    { name: 'John', schedule: { date: '23-01-23', time: '09:00' }, email: 'john@mail.com' },
-];
-
-const reducer = () => {
-
-}
+import useUsers from '../hooks/useUsers';
 
 const Table = () => {
-    const initialState = {
-        name: '',
-        date: '',
-        time: '',
-        error: null
-    }
-
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const { users } = useUsers();
+    const [tableRows, setTableRows] = useState(null);
 
     useEffect(() => {
-        const fatchUsers = async () => {
-            try {
-                const users = await getUsers();
-                console.log(users);
-            } catch (error) {
-                console.log('error ocured');
-            }
-        }
-        fatchUsers();
-    }, [])
+        const tableRows = users.map((user, index) => {
+            let closestSchedule = user.schedules.reduce((closest, schedule) => {
+                if (!closest) {
+                    return schedule;
+                }
+                const closestDate = new Date(closest.date);
+                const scheduleDate = new Date(schedule.date);
+                return scheduleDate < closestDate ? schedule : closest;
+            }, null);
 
-    const tableRows = data.map((row, index) => (
-        <tr key={index}>
-            <td>{row.name}</td>
-            <td>{row.schedule.date}</td>
-            <td>{row.schedule.time}</td>
-            <td>{row.email}</td>
-        </tr>
-    ));
+            return (
+                <tr key={index}>
+                    <td>{user.name}</td>
+                    <td>{closestSchedule ? closestSchedule.date : ''}</td>
+                    <td>{closestSchedule ? closestSchedule.time : ''}</td>
+                    <td>{user.email}</td>
+                    <td>{user.isLoggedIn}</td>
+                </tr>
+            );
+        });
+
+        setTableRows(tableRows);
+    }, [users]);
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {tableRows}
-            </tbody>
-        </table>
+        // 
+        <>
+            Next Sessions
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Email</th>
+                        <th>Is LoggedIn</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tableRows ? tableRows : null}
+                </tbody>
+            </table>
+        </>
     );
 };
 
