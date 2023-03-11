@@ -1,4 +1,5 @@
-import { useContext, getUserById, updateUsersData } from 'react'
+import { useContext } from 'react'
+import { getUserById, updateUsersData } from '../api/userServices'
 import { LogInContext } from '../contexts/LogInContext'
 
 const useGiveBadges = () => {
@@ -6,12 +7,13 @@ const useGiveBadges = () => {
 
     const setCompletedTasksBadge = async () => {
         const user = await getUserById(usersId);
+        console.log(user)
         const checkTasks = user.schedules;
         console.log(user.schedules);
         const completedTasks = checkTasks.filter((task) => task.status === 'complete');
         const giveBadge = completedTasks.length >= 1;
         if (giveBadge) {
-            const newBadge = { icon: 'target', title: 'completed first meeting' };
+            const newBadge = { icon: 'target', title: 'first meeting' };
             const badgeExists = user.badges && user.badges.some(
                 (badge) => badge.icon === newBadge.icon && badge.title === newBadge.title);
             if (!badgeExists) {
