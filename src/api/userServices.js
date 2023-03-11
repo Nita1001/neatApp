@@ -22,7 +22,6 @@ export const logInUser = async (email, password) => {
   }
 };
 
-
 export const getUsers = async () => {
   try {
     const response = await axios.get(USERS_URL);
@@ -58,6 +57,17 @@ export const getUsersSchedule = async (id) => {
   try {
     const user = await getUserById(id);
     return user.schedules;
+  } catch (error) {
+    console.error(error);
+    throw new Error(API_ERROR_MESSAGE);
+  }
+};
+
+export const getUsersBadges = async (id) => {
+  try {
+    const user = await getUserById(id);
+    console.log('badges', user.badges)
+    return user.badges;
   } catch (error) {
     console.error(error);
     throw new Error(API_ERROR_MESSAGE);

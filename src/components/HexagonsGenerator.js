@@ -1,26 +1,23 @@
-import React from 'react'
+import React from 'react';
 import useHexIcons from '../hooks/useHexIcons'
-import useBadges from '../hooks/useBadges'
 import Hexagon from "./Hexagon";
 import background from '../assets/images/hexagonBackground.png'
+import useBadges from '../hooks/useBadges';
+
 
 const HexagonsGenerator = () => {
 
-  const {
-    badges
-  } = useBadges();
-
+  const { badges } = useBadges();
   const {
     generateIcon,
     isIcon,
   } = useHexIcons();
 
-
   return (
     <>
-      {
+      {badges ?
         badges.map((badge, index) => {
-          const generatedIcon = generateIcon(badge);
+          const generatedIcon = generateIcon(badge.icon);
           const pattern = [0, 1, 1, 0, 2];
           const even = (index % 2 === 0);
           const odd = (index % 2 !== 0);
@@ -28,13 +25,13 @@ const HexagonsGenerator = () => {
           const x = (even && index > 0) ? pattern[index - 1] : (lastIndex && odd) && (index > 1) ? 2 : (odd && index > 1) ? -2 : -index;
           const y = (even && index > 0) ? pattern[index] : (odd && index > 1) ? + 2 : index;
           return (
-            <div className='hexagonsContainer' key={badge}>
-              <Hexagon x={x} y={y} imageSrc={background} title={badges[index]} />
+            <div className='hexagonsContainer' key={badge.title}>
+              <Hexagon x={x} y={y} imageSrc={background} title={(badges[index].title)} />
               <Hexagon x={x} y={y} imageSrc={generatedIcon} isIcon={isIcon} />
             </div>
           )
         })
-      }
+        : console.log('badges', badges)}
     </>
   );
 }

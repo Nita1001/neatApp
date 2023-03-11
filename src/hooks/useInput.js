@@ -9,8 +9,6 @@ import { logInUser, updateUser } from '../api/userServices'
 import { isPhoneValid } from '../utils/validatePhone'
 import { createUser } from '../api/userServices'
 
-
-
 const useInput = () => {
     const navigate = useNavigate();
     const { logIn } = useContext(LogInContext);
@@ -90,6 +88,7 @@ const useInput = () => {
                 email,
                 password,
                 schedules: [],
+                badges: [{ icon: 'rocket', title: 'first lunch' }],
                 isLoggedIn: false,
             });
 
