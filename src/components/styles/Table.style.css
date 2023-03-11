@@ -1,8 +1,12 @@
+.tablesContainer {
+    margin: 0 auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
-    font-size: 0.9em;
+    font-size: 2rem;
     font-family: sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -36,4 +40,8 @@ tbody td:before {
     display: inline-block;
     font-weight: bold;
     margin-right: 10px;
+}
+
+div .userDelete {
+    padding-top: 1rem;
 }

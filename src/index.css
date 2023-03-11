@@ -1444,6 +1444,14 @@ input[type="submit"]:disabled {
     .homeCard0 .headers h1 {
         font-size: 1.3rem;
     }
+    table {
+        width: 80%;
+        font-size: 1.5rem;
+    }
+
+    div .userDelete {
+        padding-top: 4rem;
+    }
 }
 
 /* Tablet and phone */
@@ -1515,5 +1523,13 @@ input[type="submit"]:disabled {
     .homeCard1 {
         order: 1;
         margin-top: 10rem;
+    }
+
+    table {
+        width: 50%;
+        font-size: 0.5rem;
+    }
+    div .userDelete {
+        padding-top: 3rem;
     }
 }
