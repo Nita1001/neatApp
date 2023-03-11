@@ -25,7 +25,7 @@ const LogInProvider = ({ children }) => {
         if (isLoggedIn) {
             const userId = localStorage.getItem('userToken');
             setUsersId(userId);
-            if (userId === '3') {
+            if (userId === '1') {
                 setIsAdmin(true);
                 console.log('Admin LoggedIn');
             }
