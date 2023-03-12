@@ -67,26 +67,30 @@ body {
     background-color: var(--white);
     font-family: "Roboto", "Arimo", sans-serif;
 }
-.calendarsGridContainer,
+
 .profile,
 .adminsPage {
     height: 100vh;
 }
-
+.calendarsGridContainer {
+    height: 90vh;
+}
 /* Backgrounds */
 
 .adminBackground {
     height: 100vh;
     background-image: url("./assets/images/SL_042620.jpg");
+    background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: darken;
 }
 
 .scheduleBackground {
-    height: 100vh;
     background-image: url("./assets/images/da81bd01-eef0-42a0-9a1c-28292e11d84d.jfif");
+    background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: darken;
+    height: 100vh;
 }
 
 .profileBackground {
@@ -493,18 +497,16 @@ span {
 /* Home Cards */
 .homeCard {
     margin: 1rem 0;
-    padding: 1.6rem;
     padding-top: 0;
     margin-top: 3.6rem;
     min-width: 6rem;
     border-radius: 0.5rem;
-    width: fit-content;
 }
 .homeCard0 {
     display: flex;
     margin-top: 8rem;
     align-items: center;
-    flex-direction: column;
+    flex-direction: flex-start;
 }
 .homeCard0 .headers h1 {
     font-size: 2.4rem;
@@ -553,7 +555,9 @@ span {
 
 .homeCardBadges {
     position: absolute;
-    left: 22rem;
+    top: 1rem;
+    left: 0;
+    right: 23rem;
 }
 /* About Page */
 .introAbout {
@@ -643,8 +647,8 @@ span {
 .grid-3 {
     display: grid;
     align-items: baseline;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    margin-left: 28rem;
+    margin-right: 28rem;
     grid-template-columns: repeat(3, 1fr);
 }
 
@@ -1378,6 +1382,21 @@ strong {
 }
 
 /* Smaller screens */
+
+@media (max-width: 1500px) {
+    .grid-3 {
+        margin-left: 12rem;
+        margin-right: 12rem;
+    }
+    .homeCard2 {
+        font-size: 1.26rem;
+    }
+    .homeCardBadges {
+        position: absolute;
+        left: 0;
+    }
+}
+
 @media (max-width: 1200px) {
     .grid-4 {
         grid-template-columns: repeat(2, 1fr);
