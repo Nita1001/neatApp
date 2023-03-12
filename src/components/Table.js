@@ -10,7 +10,7 @@ const Table = () => {
         console.log('do you want to delete this user?', user);
     }
     useEffect(() => {
-        const tableRows = users.map((user, index) => {
+        const tableRows = users.filter(user => user.email !== 'Admin@mail.com').map((user, index) => {
             let closestSchedule = user.schedules.reduce((closest, schedule) => {
                 if (!closest) {
                     return schedule;
@@ -29,12 +29,13 @@ const Table = () => {
                     <td>{user.email}</td>
                     <td>{user.phone}</td>
                     <td>{user.isLoggedIn ? 'Yes' : 'No'}</td>
-                    <div className='userDelete'><Button
-                        className='trash'
-                        title='Delete'
-                        handleClick={() => handleDeleteUser(user)}
-
-                    /></div>
+                    <th>
+                        <div className='userDelete'><Button
+                            className='trash'
+                            title='Delete'
+                            handleClick={() => handleDeleteUser(user)}
+                        /></div>
+                    </th>
                 </tr>
             );
         });
@@ -50,8 +51,7 @@ const Table = () => {
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Date</th>
-                        <th>Time</th>
+                        <th colSpan="2">Next Meeting</th>
                         <th>Status</th>
                         <th>Email</th>
                         <th>Phone</th>

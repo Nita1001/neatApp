@@ -5,7 +5,6 @@ import star from '../assets/icons/star-front-gradient.png'
 import target from '../assets/icons/target-front-gradient.png'
 import calendar from '../assets/icons/calender-front-gradient.png'
 
-
 const useHexIcons = () => {
     const isIcon = true;
 
@@ -30,7 +29,7 @@ const useHexIcons = () => {
 
     return {
         generateIcon,
-        isIcon
+        isIcon,
     }
 }
 

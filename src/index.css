@@ -520,11 +520,12 @@ span {
     height: 3rem;
     margin-top: 1rem;
     color: white;
+    border: none;
     border-radius: 0.4rem;
-    background-color: rgba(1, 33, 46, 0.817);
+    background-color: rgba(43, 70, 84, 0.611);
 }
 .homeCard0 button:hover {
-    background-color: rgba(1, 33, 46, 0.979);
+    background-color: rgba(3, 41, 56, 0.735);
 }
 .homeCard0 a {
     color: white;
@@ -537,9 +538,20 @@ span {
     border-radius: 10rem;
 }
 .homeCard2 {
-    margin-left: 4rem;
+    /* margin-left: 4rem; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 2rem;
+    justify-content: space-between;
 }
 
+.homeCardBadges {
+    position: absolute;
+    left: 22rem;
+}
 /* Admins Page */
 
 /* Table */
@@ -1357,6 +1369,9 @@ input[type="submit"]:disabled {
     .lead {
         font-size: 1.6rem;
     }
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
 
     .grid-4 {
         grid-template-columns: 1fr;
@@ -1444,13 +1459,21 @@ input[type="submit"]:disabled {
     .homeCard0 .headers h1 {
         font-size: 1.3rem;
     }
+    .homeCard0 {
+        order: 3;
+        margin-top: 0;
+    }
+    .homeCard2 {
+        order: 2;
+        font-size: 1.3rem;
+    }
     table {
         width: 80%;
         font-size: 1.5rem;
     }
-
-    div .userDelete {
-        padding-top: 4rem;
+    .homeCardBadges {
+        top: 8rem;
+        left: 0.1rem;
     }
 }
 
@@ -1470,9 +1493,6 @@ input[type="submit"]:disabled {
         padding-top: 3rem;
         grid-gap: 0;
     }
-    .grid-2 {
-        grid-template-columns: 1fr;
-    }
     .hoursList li {
         font-size: 2.2rem;
     }
@@ -1487,10 +1507,14 @@ input[type="submit"]:disabled {
         left: 37rem;
     }
     .homeCard0 {
-        margin-top: 12rem;
+        margin-top: 0;
     }
     .homeCard1 img {
-        margin-top: 0;
+        margin-top: 14rem;
+    }
+    .btnLogOut {
+        margin-top: 4rem;
+        font-size: 3rem;
     }
 }
 
@@ -1511,7 +1535,6 @@ input[type="submit"]:disabled {
     .hexagonsContainer {
         left: 20rem;
     }
-
     .homeCard0 {
         order: 2;
         margin-left: 0;
@@ -1524,12 +1547,15 @@ input[type="submit"]:disabled {
         order: 1;
         margin-top: 10rem;
     }
-
     table {
         width: 50%;
         font-size: 0.5rem;
     }
-    div .userDelete {
-        padding-top: 3rem;
+    .homeCard2 {
+        order: 3;
+        font-size: 1rem;
+    }
+    .homeCardBadges {
+        top: 12rem;
     }
 }

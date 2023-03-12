@@ -1,9 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import HexagonsGenerator from '../components/HexagonsGenerator';
-
+import useBadges from '../hooks/useBadges';
 const Profile = () => {
     const usersName = localStorage.getItem('name');
+    const { badges } = useBadges();
 
     return (
         <>
@@ -19,7 +20,7 @@ const Profile = () => {
                 </section>
                 <div className='flex-Container'>
                     <div className='homeCard'>
-                        <HexagonsGenerator></HexagonsGenerator>
+                        <HexagonsGenerator badges={badges}></HexagonsGenerator>
                     </div>
                 </div>
             </div>
