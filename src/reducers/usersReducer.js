@@ -9,6 +9,20 @@ const usersReducer = (state, action) => {
                 users: payload,
                 error: null
             }
+        case usersActions.SET_USER_BADGES:
+            const updatedUsers = state.users.map((user) => {
+                if (user.id === payload.id) {
+                    return {
+                        ...user,
+                        badges: payload.badges
+                    }
+                }
+                return user;
+            });
+            return {
+                ...state,
+                users: updatedUsers
+            };
         case usersActions.SET_ERROR:
             return {
                 ...state,
