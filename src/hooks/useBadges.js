@@ -29,6 +29,7 @@ const useBadges = () => {
 
     return {
         badges: state.badges,
+        loading: state.loading
     };
 }
 

@@ -2,9 +2,10 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import HexagonsGenerator from '../components/HexagonsGenerator';
 import useBadges from '../hooks/useBadges';
+import Spinner from '../components/Spinner';
 const Profile = () => {
     const usersName = localStorage.getItem('name');
-    const { badges } = useBadges();
+    const { badges, loading } = useBadges();
 
     return (
         <>
@@ -20,7 +21,11 @@ const Profile = () => {
                 </section>
                 <div className='flex-Container'>
                     <div className='homeCard'>
-                        <HexagonsGenerator badges={badges}></HexagonsGenerator>
+                        {loading ? (
+                            <Spinner />
+                        ) : (
+                            <HexagonsGenerator badges={badges} />)
+                        }
                     </div>
                 </div>
             </div>
