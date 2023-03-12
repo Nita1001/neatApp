@@ -14,7 +14,6 @@ function App() {
             <Route path="/logIn" element={<LogIn />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/admin" element={<Admin />} />
-
             <Route path="/schedule" element={<Schedule />} />
             <Route path="*" element={<NotFound />} />
           </Route>
@@ -25,3 +24,5 @@ function App() {
 }
 
 export default App;
+
+
