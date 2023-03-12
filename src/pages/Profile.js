@@ -1,15 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import HexagonsGenerator from '../components/HexagonsGenerator';
-import useGiveBadges from '../hooks/useGiveBadges'
 
 const Profile = () => {
     const usersName = localStorage.getItem('name');
-    const { setCompletedTasksBadge } = useGiveBadges();
-
-    useEffect(() => {
-        setCompletedTasksBadge();
-    }, [setCompletedTasksBadge])
 
     return (
         <>
@@ -29,7 +23,6 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
