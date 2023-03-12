@@ -87,7 +87,7 @@ const useInput = () => {
                 email,
                 password,
                 schedules: [],
-                badges: [{ icon: 'rocket', title: 'first lunch' }],
+                badges: [{ icon: 'rocket', title: 'first launch' }],
                 isLoggedIn: false,
             });
             navigate('/logIn');

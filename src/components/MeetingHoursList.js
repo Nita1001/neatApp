@@ -54,9 +54,10 @@ const MeetingHoursList = () => {
                                                 </>
                                                 :
                                                 <>
-                                                    <p> Can't have multiple meetings same Day..</p>
+                                                    <p>Already booked a meeting</p>
+                                                    <p>This Day</p>
                                                     <button className='editMeetingBtn'
-                                                        onClick={handleEditSchedule}> Edit meeting
+                                                        onClick={handleEditSchedule}> Edit meetings
                                                     </button>
                                                 </>
                                             }
