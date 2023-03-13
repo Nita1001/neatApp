@@ -34,17 +34,17 @@ const Home = () => {
                         <img src={calendarImg} alt='cal'></img>
                     </div>
                     <div className='homeCard homeCard2'>
-                        <div className='homeCard homeCard2'>
-                            <p><strong>Unlock Achievement Badges</strong> by completing tasks & tracking your Progress</p>
-                            <p>All while reaching your personal goals.</p>
-                            <p><strong>Stay on track</strong> and Celebrate Your accomplishments</p>
-                        </div>
-                        <div className='homeCardBadges'>
+                        <div className='homeCard homeCardBadges'>
                             {!badges ? (
                                 <Spinner />
                             ) : (
                                 <HexagonsGenerator badges={badges} />)
                             }
+                        </div>
+                        <div className='badgesHeaders'>
+                            <p><strong>Unlock Achievement Badges</strong> by completing tasks & tracking your Progress</p>
+                            <p>All while reaching your personal goals.</p>
+                            <p><strong>Stay on track</strong> and Celebrate Your accomplishments</p>
                         </div>
                     </div>
                 </div>

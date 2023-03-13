@@ -70,6 +70,7 @@ body {
 
 .profile,
 .adminsPage {
+    overflow: hidden;
     height: 100vh;
 }
 .calendarsGridContainer {
@@ -498,13 +499,13 @@ span {
 .homeCard {
     margin: 1rem 0;
     padding-top: 0;
-    margin-top: 3.6rem;
+    margin-top: 3rem;
     min-width: 6rem;
     border-radius: 0.5rem;
 }
 .homeCard0 {
     display: flex;
-    margin-top: 8rem;
+    margin-top: 5rem;
     align-items: center;
     flex-direction: flex-start;
 }
@@ -539,7 +540,7 @@ span {
     margin: 0 auto;
 }
 .homeCard1 img {
-    margin-top: 8rem;
+    margin-top: 2rem;
     border-radius: 10rem;
 }
 .homeCard2 {
@@ -553,12 +554,27 @@ span {
     justify-content: space-between;
 }
 
-.homeCardBadges {
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    right: 23rem;
+.badgesHeaders {
+    width: 110%;
+    display: flex;
+    margin-left: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
 }
+.badgesHeaders p {
+    margin-left: 0;
+}
+
+.homeCardBadges {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 /* About Page */
 .introAbout {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -566,7 +582,6 @@ span {
     display: flex;
     flex-direction: column;
     margin-top: 8rem;
-    margin-left: 10rem;
     width: 100%;
     line-height: 1.5;
 }
@@ -1591,6 +1606,12 @@ strong {
         order: 1;
         margin-top: 10rem;
     }
+    .homeCard1 img {
+        margin-top: 0;
+    }
+    .homeCard .homeCard2 {
+        margin-top: 0;
+    }
     table {
         width: 50%;
         font-size: 0.5rem;
@@ -1600,6 +1621,11 @@ strong {
         font-size: 1rem;
     }
     .homeCardBadges {
-        top: 12rem;
+        position: absolute;
+        right: 14rem;
+        top: 8rem;
+    }
+    .badgesHeaders p {
+        font-size: 0.9rem;
     }
 }
