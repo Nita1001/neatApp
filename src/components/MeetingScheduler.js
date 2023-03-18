@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DAYS_OF_WEEK, MONTH_NAMES } from "../utils/constants";
 import useCalendar from "../hooks/useCalendar";
+import './styles/Scheduler.style.css'
 
 const MeetingScheduler = () => {
 

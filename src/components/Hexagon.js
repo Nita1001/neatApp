@@ -1,5 +1,6 @@
 import React from 'react';
 import useHexagon from '../hooks/useHexagon';
+import './styles/Hexagon.style.css'
 
 const Hexagon = ({ x, y, imageSrc, title, isIcon }) => {
 

@@ -4,6 +4,7 @@ import MeetingScheduler from '../components/MeetingScheduler'
 import MeetingHoursList from '../components/MeetingHoursList'
 import ScheduledMeetings from '../components/ScheduledMeetings';
 import Tasks from '../components/Tasks';
+import './styles/Pages.style.css'
 
 const Schedule = () => {
 

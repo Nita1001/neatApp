@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import Table from '../components/Table'
+import './styles/Pages.style.css'
 
 const Admin = () => {
 

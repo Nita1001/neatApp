@@ -2,8 +2,9 @@ import React from 'react';
 import useHexIcons from '../hooks/useHexIcons'
 import Hexagon from "./Hexagon";
 import background from '../assets/images/hexagonBackground.png'
+import './styles/Hexagon.style.css'
 
-const HexagonsGenerator = ({ badges }) => {
+const HexagonsGenerator = ({ badges, className = 'hexagonsContainer' }) => {
 
   const {
     generateIcon,
@@ -22,7 +23,7 @@ const HexagonsGenerator = ({ badges }) => {
           const x = (even && index > 0) ? pattern[index - 1] : (lastIndex && odd) && (index > 1) ? 2 : (odd && index > 1) ? -2 : -index;
           const y = (even && index > 0) ? pattern[index] : (odd && index > 1) ? + 2 : index;
           return (
-            <div className='hexagonsContainer' key={badge.title || index}>
+            <div className={className} key={badge.title || index}>
               <Hexagon x={x} y={y} imageSrc={background} title={(badges[index].title)} />
               <Hexagon x={x} y={y} imageSrc={generatedIcon} isIcon={isIcon} />
             </div>

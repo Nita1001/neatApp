@@ -2,6 +2,7 @@ import React, { useContext, useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { LogInContext } from '../../contexts/LogInContext';
 import useLogOut from '../../hooks/useLogOut';
+import '../styles/Hamburger.style.css'
 
 const MobileMainNav = () => {
 

@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet'
 import HexagonsGenerator from '../components/HexagonsGenerator';
 import useBadges from '../hooks/useBadges';
 import Spinner from '../components/Spinner';
+import './styles/Pages.style.css'
+
 const Profile = () => {
     const usersName = localStorage.getItem('name');
     const { badges, loading } = useBadges();
