@@ -1,0 +1,210 @@
+.profile,
+.adminsPage {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Schedules Page Cards */
+.card {
+    margin: 1rem 0;
+    padding: 1.6rem;
+    padding-top: 0;
+    margin-top: 3.6rem;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+.card1 {
+    padding: 1rem;
+    margin: 1rem 0;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+.card2 {
+    margin: 0 auto;
+    padding: 1.6rem;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+}
+
+/* Backgrounds */
+.adminBackground {
+    height: 100vh;
+    background-image: url("../../assets/images/SL_042620.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+}
+
+.scheduleBackground {
+    background-image: url("../../assets/images/SL_042620.jpg");
+    background-color: whitesmoke;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    height: 100vh;
+}
+
+.profileBackground {
+    background-size: cover;
+    background-image: url("../../assets/images/background101.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+.profileHeaderBackground {
+    height: 30vh;
+    background-color: rgba(255, 255, 255, 0.282);
+}
+
+.profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5rem;
+    padding-left: 4rem;
+    margin: 0;
+    width: 97vw;
+}
+.profileHeader h2 {
+    padding-bottom: 1rem;
+}
+
+/* Home Page */
+.home {
+    width: 80%;
+    font-family: Verdana, Tahoma, sans-serif;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Home Cards */
+.homeCard {
+    margin: 1rem 0;
+    padding-top: 0;
+    margin-top: 3rem;
+    min-width: 6rem;
+    border-radius: 0.5rem;
+}
+.homeCard0 {
+    display: flex;
+    margin-top: 5rem;
+    align-items: center;
+    flex-direction: flex-start;
+}
+.homeCard0 .headers h1 {
+    font-size: 2.4rem;
+}
+.homeCard0 .headers {
+    display: flex;
+    margin-left: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.homeCard0 button {
+    width: 14rem;
+    height: 3rem;
+    margin-top: 1rem;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: rgba(15, 25, 30, 0.813);
+}
+.homeCard0 button:hover {
+    background-color: rgba(8, 12, 14, 0.932);
+}
+.homeCard0 a {
+    color: white;
+}
+.homeCard1 {
+    margin: 0 auto;
+}
+.homeCard1 img {
+    margin-top: 2rem;
+    border-radius: 10rem;
+}
+.homeCard2 {
+    /* margin-left: 4rem; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 2rem;
+    justify-content: space-between;
+}
+
+.badgesHeaders {
+    width: 110%;
+    display: flex;
+    margin-left: 0;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.badgesHeaders p {
+    margin-left: 0;
+}
+
+.homeCardBadges {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+/* About Page */
+.introAbout {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+    width: 100%;
+    line-height: 1.5;
+}
+
+/* Menu */
+.navContainer {
+    margin: auto;
+    width: 110rem;
+    overflow: hidden;
+    max-width: 110rem;
+    padding: 0 3.2rem;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Utilities */
+
+.centeredContainer {
+    margin: 0 auto;
+    width: 110rem;
+    max-width: 110rem;
+}
+
+.logInForm,
+.signUpForm {
+    margin: 0 auto;
+}
+
+.logInForm:hover,
+.signUpForm:hover {
+    background-color: #aba9a939;
+}

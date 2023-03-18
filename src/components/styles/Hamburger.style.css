@@ -1,0 +1,133 @@
+/* Burger Menu */
+.menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.menu-wrap .toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.menu-wrap .burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-color);
+}
+/* Hamburger Line */
+.menu-wrap .burger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    display: flex;
+    background: #fff;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+/* burger Lines - Top & Bottom */
+.menu-wrap .burger > div::before,
+.menu-wrap .burger > div::after {
+    position: absolute;
+    content: "";
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+}
+/* Move Line Down */
+.menu-wrap .burger > div::after {
+    top: 10px;
+}
+/* Toggle Animation */
+.menu-wrap .toggle:checked + .burger > div {
+    transform: rotate(135deg);
+}
+/* Turns Lines Into X */
+.menu-wrap .toggle:checked + .burger > div:before,
+.menu-wrap .toggle:checked + .burger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+/* Rotate On Hover When Checked */
+.menu-wrap .toggle:checked:hover + .burger > div {
+    transform: rotate(225deg);
+}
+/* Show Menu */
+.menu-wrap .toggle:checked ~ .menu {
+    visibility: visible;
+}
+.menu-wrap .toggle:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 0.75s;
+}
+.menu-wrap .toggle:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+}
+.menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.burgersUlContainer {
+    display: flex;
+    flex-direction: column;
+}
+.menu-wrap .menu > div {
+    width: 100%;
+    height: 100%;
+    flex: none;
+    display: flex;
+    transform: scale(0);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    background: rgba(17, 17, 17, 0.85);
+}
+.menu-wrap .menu > div > div {
+    opacity: 0;
+    max-width: 90vw;
+    max-height: 100vh;
+    text-align: center;
+    transition: opacity 0.4s ease;
+}
+.menu-wrap .menu > div > div > ul > li {
+    color: #fff;
+    padding: 1rem;
+    font-size: 4rem;
+    list-style: none;
+}
+.menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+}
+.menu-wrap .menu > div > div > ul > li > a:hover {
+    color: teal;
+}

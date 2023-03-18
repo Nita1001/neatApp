@@ -1,0 +1,454 @@
+/* Calendar styles */
+
+.calendarContainer {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark {
+    --bg-body: var(--dark-body);
+    --bg-main: var(--dark-main);
+    --bg-second: var(--dark-second);
+    --color-hover: var(--dark-hover);
+    --color-txt: var(--dark-text);
+}
+
+.light {
+    --bg-body: var(--light-body);
+    --bg-main: var(--light-main);
+    --bg-second: var(--light-second);
+    --color-hover: var(--light-hover);
+    --color-txt: var(--light-text);
+}
+
+.calendar {
+    position: relative;
+    overflow: hidden;
+    width: max-content;
+    border-radius: 30px;
+    height: max-content;
+    background-color: var(--bg-main);
+}
+
+.light .calendar {
+    box-shadow: var(--shadow);
+}
+
+.calendar-header {
+    display: flex;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+    align-items: center;
+    color: var(--color-txt);
+    justify-content: space-between;
+}
+
+.calendar-body {
+    padding: 1rem;
+}
+
+.day:hover {
+    background-color: #79788c;
+}
+
+.day-active {
+    background-color: #79788c;
+}
+
+.calendar-week-day {
+    height: 5rem;
+    display: grid;
+    font-weight: 600;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-week-day div {
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+}
+
+.calendar-days {
+    display: grid;
+    gap: 0.2rem;
+    color: var(--color-txt);
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-days div {
+    position: relative;
+    display: flex;
+    width: 5rem;
+    height: 5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    animation: to-top 2s forwards;
+}
+
+.calendar-days div span {
+    position: absolute;
+}
+
+.calendar-days div:hover span {
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.calendar-days div span:nth-child(1),
+.calendar-days div span:nth-child(3) {
+    height: 0;
+    width: 0.2rem;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(1),
+.calendar-days div:hover span:nth-child(3) {
+    height: 100%;
+}
+
+.calendar-days div span:nth-child(1) {
+    left: 0;
+    bottom: 0;
+}
+
+.calendar-days div span:nth-child(3) {
+    top: 0;
+    right: 0;
+}
+
+.calendar-days div span:nth-child(2),
+.calendar-days div span:nth-child(4) {
+    width: 0;
+    height: 0.2rem;
+    background-color: var(--color-txt);
+}
+
+.calendar-days div:hover span:nth-child(2),
+.calendar-days div:hover span:nth-child(4) {
+    width: 100%;
+}
+
+.calendar-days div span:nth-child(2) {
+    top: 0;
+    left: 0;
+}
+
+.calendar-days div span:nth-child(4) {
+    right: 0;
+    bottom: 0;
+}
+
+.calendar-days div:hover span:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.calendar-days div:hover span:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+.calendar-days div:hover span:nth-child(4) {
+    transition-delay: 0.6s;
+}
+
+.calendar-days div.curr-date,
+.calendar-days div.curr-date:hover {
+    border-radius: 50%;
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.calendar-days div.curr-date span {
+    display: none;
+}
+
+.month-picker {
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.month-picker:hover {
+    background-color: var(--color-hover);
+}
+
+.year-picker {
+    display: flex;
+    align-items: center;
+}
+
+.year-change {
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    margin: 0 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    place-items: center;
+}
+
+.year-change:hover {
+    background-color: var(--color-hover);
+}
+
+.calendar-footer {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.toggle {
+    display: flex;
+}
+
+.toggle span {
+    margin-right: 1rem;
+    color: var(--color-txt);
+}
+
+.dark-mode-switch {
+    position: relative;
+    width: 4.8rem;
+    height: 2.5rem;
+    cursor: pointer;
+    border-radius: 1.4rem;
+    background-color: var(--bg-second);
+}
+
+.dark-mode-switch-ident {
+    position: absolute;
+    border-radius: 50%;
+    width: 2.1rem;
+    height: 2.1rem;
+    top: 0.2rem;
+    left: 0.2rem;
+    background-color: var(--bg-main);
+    transition: left 0.2s ease-in-out;
+}
+
+.dark .dark-mode-switch .dark-mode-switch-ident {
+    top: 0.2rem;
+    left: calc(0.2rem + 50%);
+}
+
+.month-list {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    gap: 0.5rem;
+    padding: 2rem;
+    display: grid;
+    font-weight: 800;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(1.5);
+    background-color: var(--bg-main);
+    grid-template-columns: repeat(3, auto);
+    font-family: "Courier New", Courier, monospace;
+}
+
+.month-list.show {
+    transform: scale(1);
+    visibility: visible;
+    pointer-events: visible;
+    transition: all 0.2s ease-in-out;
+}
+
+.month-list > div {
+    display: grid;
+    place-items: center;
+}
+
+.month-list > div > div {
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.5rem 2rem;
+    color: var(--color-txt);
+}
+
+.month-list > div > div:hover {
+    background-color: var(--color-hover);
+}
+
+@keyframes to-top {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Available Hours List */
+
+.availableHoursContainer {
+    color: white;
+    background-color: rgba(17, 17, 17, 0.85);
+    border-radius: 2rem;
+    width: 40rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+.availableHoursContainer ul {
+    margin: 0 auto;
+    width: fit-content;
+    padding-bottom: 1rem;
+}
+
+.availableHoursContainer h3 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.activeHour {
+    opacity: 0.5;
+}
+
+.hoursList li {
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-family: "Courier New", Courier, monospace;
+}
+.hoursList li:hover {
+    transform: scale(1.2);
+}
+
+.noneAvailableParagraph {
+    font-weight: 800;
+    margin-top: 14rem;
+}
+
+.mineBtn {
+    cursor: grab;
+    width: 10rem;
+    height: 3rem;
+    color: white;
+    margin-top: 1rem;
+    margin-bottom: 1.4rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    background-color: var(--dark-color);
+}
+
+.editMeetingBtn {
+    cursor: grab;
+    width: 11rem;
+    height: 3rem;
+    color: white;
+    margin-top: 1rem;
+    border: 1px solid;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    background-color: var(--danger-color);
+}
+
+.scheduledList {
+    background-color: var(--danger-color);
+}
+
+/* TasksList */
+
+.myScheduledMeetings {
+    margin-top: 7rem;
+}
+
+.myScheduledMeetings button {
+    margin-bottom: 1.2rem;
+}
+
+.getScheduled {
+    cursor: pointer;
+    width: 10rem;
+    border: 1px solid;
+    border-radius: 1rem;
+    color: white;
+    background-color: var(--dark-color);
+}
+
+.task-header {
+    display: flex;
+    color: white;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1rem;
+    background-color: #282c34;
+}
+
+.tasks-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 38.2rem;
+    /* border: solid rgb(255, 238, 238); */
+}
+
+.task {
+    width: 50%;
+    font-size: small;
+}
+
+.task h1 {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Verdana, sans-serif;
+    margin-left: 1rem;
+}
+.task-input {
+    border: none;
+    width: 20rem;
+    height: 2rem;
+    cursor: pointer;
+    text-indent: 1rem;
+    border-radius: 15px;
+}
+
+.input-container {
+    padding-right: 1rem;
+}
+
+.taskField {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+}
+
+#checkbox {
+    margin-left: 1rem;
+    accent-color: #030303;
+    cursor: pointer;
+}
+.lineThrough {
+    text-decoration: line-through;
+}
+.trash {
+    cursor: pointer;
+}
+strong {
+    animation: slide-up 3s ease-out forwards;
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
