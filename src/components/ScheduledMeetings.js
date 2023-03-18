@@ -1,5 +1,6 @@
 import React from 'react';
 import useMySchedule from '../hooks/useMySchedule';
+import './styles/Scheduler.style.css'
 
 const ScheduledMeetings = () => {
     const { handleMySchedule } = useMySchedule();
@@ -15,6 +16,5 @@ const ScheduledMeetings = () => {
         </div>
     );
 };
-
 
 export default ScheduledMeetings;
