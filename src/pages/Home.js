@@ -2,19 +2,10 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import HexagonsGenerator from '../components/HexagonsGenerator'
-import calendarImg from '../assets/images/Capture222.PNG'
 import Spinner from '../components/Spinner';
-
+import { BADGES as badges } from '../utils/constants'
+import './styles/Pages.style.css'
 const Home = () => {
-
-    const badges = [
-        { icon: 'crown', title: '' },
-        { icon: 'rocket', title: '' },
-        { icon: 'fire', title: '' },
-        { icon: 'star', title: '' },
-        { icon: 'target', title: '' },
-        { icon: 'calendar', title: '' }
-    ]
 
     return (
         <>
@@ -31,18 +22,16 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='homeCard homeCard1'>
-                        <img src={calendarImg} alt='cal'></img>
+
                     </div>
                     <div className='homeCard homeCard2'>
-                        <div className='homeCard homeCardBadges'>
+                        <div className='badgesHeaders'>
                             {!badges ? (
                                 <Spinner />
                             ) : (
-                                <HexagonsGenerator badges={badges} />)
+                                <HexagonsGenerator badges={badges} className="homeHomeCardBadges" />)
                             }
-                        </div>
-                        <div className='badgesHeaders'>
-                            <p><strong>Unlock Achievement Badges</strong> by completing tasks & tracking your Progress</p>
+                            <p><strong>Unlock Achievement Badges</strong> by completing tasks & tracking your progress</p>
                             <p>All while reaching your personal goals.</p>
                             <p><strong>Stay on track</strong> and Celebrate Your accomplishments</p>
                         </div>
